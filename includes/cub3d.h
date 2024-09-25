@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 23:59:11 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/25 14:50:35 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/25 15:51:59 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,5 +219,19 @@ typedef struct s_cub3d_data
 	struct s_keys			keys;
 }	t_cub3d_data;
 
+
+
+
+
+
+
+
+void	cub3d_exit(t_errors exit_code, t_cub3d_data *data);
+void	check_file_extension(struct s_cub3d_data *data);
+void	parsing(struct s_cub3d_data *data);
+
+void	free_double_array(char ***array_ptr);
+void	reach_eof_to_avoid_leaks(char *line, int fd);
+int		double_array_len(char **dArray);
 
 #endif

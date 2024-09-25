@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:06:25 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/25 14:23:29 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/25 15:01:48 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,18 @@ void	check_file_extension(struct s_cub3d_data *data)
 	extension = ft_strrchr(data->utils.map_path, '.');
 	if (!extension || ft_strcmp(extension, FILE_EXTENTION) != 0)
 	{
-		
+		cub3d_exit(BAD_FILE_EXTENTION, data);
 	}
+}
+
+void	parsing(struct s_cub3d_data *data)
+{
+	init_data();
+	if (data->utils.argc != ARGUMENTS_REQUIRED)
+	{
+		cub3d_exit(BAD_ARGUMENTS, data);
+	}
+	data->utils.map_path = data->utils.argv[1];
+	check_file_extension(data);
+	extract_settings(data);
 }
