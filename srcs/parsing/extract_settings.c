@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 15:33:43 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/25 16:19:13 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/25 19:31:34 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,3 +45,4 @@ static void	handle_line(struct s_cub3d_data *data, char *line, int fd, int line_
 		store_setting(data, elements, fd);
 	}
 }
+

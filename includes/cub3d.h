@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 23:59:11 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/25 19:13:18 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/25 19:28:57 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -242,6 +242,7 @@ int		store_colors(t_cub3d_data *data, char **line_elements, int fd, char id);
 void	free_double_array(char ***array_ptr);
 void	reach_eof_to_avoid_leaks(char *line, int fd);
 int		double_array_len(char **dArray);
+void	check_map_validity(t_cub3d_data *data, int fd);
 
 
 #endif
