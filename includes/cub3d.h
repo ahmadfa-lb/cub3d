@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 23:59:11 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/25 18:25:55 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/25 19:13:18 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <math.h>
 # include <sys/time.h>
 
+# define M_PI 3.14159265358979323846
 
 # define EXPECTED_SETTING_PARTS 2 // identifier -> value
 # define BASE_SETTINGS_REQUIRED 6 // TEXTURES PATH, FLOOR AND CEILING COLORS
