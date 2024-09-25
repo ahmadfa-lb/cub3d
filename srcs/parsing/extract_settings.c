@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 15:33:43 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/25 19:31:34 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/25 19:34:00 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,3 +46,29 @@ static void	handle_line(struct s_cub3d_data *data, char *line, int fd, int line_
 	}
 }
 
+void	extract_settings(struct s_cub3d_data *data)
+{
+	int		fd;
+	char	*line;
+
+	fd = open(data->utils.map_path, O_RDONLY);
+	if (fd == -1)
+		cub3d_exit(OTHER, data);
+	line = get_next_line(fd);
+	while (line
+		&& data->utils.settings_already_set != BASE_SETTINGS_REQUIRED)
+	{
+		if (!is_only_spaces(line))
+			handle_line(data, line, fd, 0);
+		else
+			free(line);
+		line = get_next_line(fd);
+	}
+	if (!line && data->utils.settings_already_set != BASE_SETTINGS_REQUIRED)
+	{
+		close (fd);
+		cub3d_exit(MISSING_SETTING, data);
+	}
+	store_map(data, line, fd);
+	close(fd);
+}
