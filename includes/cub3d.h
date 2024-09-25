@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 23:59:11 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/25 16:52:50 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/25 18:19:25 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -230,6 +230,7 @@ void	cub3d_exit(t_errors exit_code, t_cub3d_data *data);
 void	check_file_extension(struct s_cub3d_data *data);
 void	parsing(struct s_cub3d_data *data);
 int		store_texture_path(t_cub3d_data *data, char **line_elements, int fd);
+int		store_colors(t_cub3d_data *data, char **line_elements, int fd, char id);
 void	free_double_array(char ***array_ptr);
 void	reach_eof_to_avoid_leaks(char *line, int fd);
 int		double_array_len(char **dArray);
