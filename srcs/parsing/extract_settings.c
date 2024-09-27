@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 15:33:43 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/25 19:34:00 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/27 14:33:16 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	handle_error_and_exit(char **line_elements, int fd, t_cub3d_data *cu
 	free_double_array(&line_elements);
 	reach_eof_to_avoid_leaks(NULL, fd);
 	close(fd);
-	cub_exit(BAD_SETTING_FORMAT, cub_data);
+	cub3d_exit(BAD_SETTING_FORMAT, cub_data);
 }
 
 static void	handle_line(struct s_cub3d_data *data, char *line, int fd, int line_length)

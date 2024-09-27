@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 23:59:11 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/25 19:28:57 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/27 14:29:34 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # define ARGUMENTS_REQUIRED 2
 # define FILE_EXTENTION ".cub"
 # define NBR_OF_ERRORS 20
-
+# define FRAME "./game_data/textures/minimap_frame.xpm"
 //=== Keys ----------------------------------------------------------------===//
 
 # define KEY_COUNT 6
