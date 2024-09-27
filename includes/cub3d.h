@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 23:59:11 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/27 14:29:34 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/27 14:54:07 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,14 @@
 # define LEFT_ARROW 65361
 # define RIGHT_ARROW 65363
 # define E 101
+
+//=== Colors --------------------------------------------------------------===//
+
+# define WHITE 0xffffff
+# define GREY 0x808080
+# define RED 0xff0000
+# define BLACK 0x000000
+# define GREEN 0x00FF00
 
 //=== Minimap -------------------------------------------------------------===//
 
