@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 23:59:11 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/27 14:54:07 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/27 15:22:15 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,14 @@
 # define MAX_DOOR_INTERACT_DISTANCE 1.7f
 
 typedef void	(*t_exit_func_ptr)(void);
+
+typedef struct s_bresenham
+{
+	int	dx_dy[2];
+	int	sx_sy[2];
+	int	err;
+	int	e2;
+}	t_bresenham;
 
 typedef enum s_errors
 {
@@ -168,6 +176,8 @@ typedef struct s_mlx
 	int		line_len;
 	int		edian;
 }	t_mlx;
+
+
 
 typedef struct s_player_data
 {
