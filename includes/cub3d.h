@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 23:59:11 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/28 20:22:21 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/28 20:37:16 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -250,7 +250,11 @@ typedef struct s_map_params // Specific struct helping for map parsing
 }	t_map_params;
 
 
-
+int	render(t_cub3d_data *data);
+static void	game_algorithm(t_cub3d_data *data);
+void	game_loop(t_cub3d_data *data);
+int	store_texture_path(t_cub3d_data *data, char **line_elements, int fd);
+void	store_player_pos(t_cub3d_data *data);
 void	cub3d_exit(t_errors exit_code, t_cub3d_data *data);
 void	check_file_extension(struct s_cub3d_data *data);
 void	parsing(struct s_cub3d_data *data);
@@ -261,7 +265,8 @@ void	free_double_array(char ***array_ptr);
 void	reach_eof_to_avoid_leaks(char *line, int fd);
 int		double_array_len(char **dArray);
 void	check_map_validity(t_cub3d_data *data, int fd);
-
+void	extract_settings(struct s_cub3d_data *data);
+void	save_essential_setting(struct s_cub3d_data *data, char **line_elements, int fd);
 void	init_data(struct s_cub3d_data *data);
 void	get_imgs_addr(t_cub3d_data *data);
 void	load_mlx(t_cub3d_data *data);
@@ -287,6 +292,33 @@ void	map_duplicated_player_spawn_pos(void);
 void	map_missing_player_spawn_pos(void);
 void	map_missing(void);
 void	cub_exit_success(void);
+
+
+void	free_everything(t_cub3d_data *data);
+void	fill_background(t_cub3d_data *data, int x, int y);
+void	draw_minimap(t_cub3d_data *data, int x, int y);
+void	raycasting(t_cub3d_data *data);
+void	put_wall_texture(t_cub3d_data *data, t_ray_cast *ray);
+
+int	scale_player_pos(float pos);
+void	minimap_frame(t_cub3d_data *data);
+long	get_current_time_in_ms(void);
+float	deg_to_rad(int a);
+float	ft_fabs(float value);
+int	get_sx_sy(int var1, int var2);
+void	ft_mlx_pixel_put(t_cub3d_data *data, int x, int y, int color);
+void	bresenham_line_draw(t_cub3d_data *data, int x0_y0[2], int x1_y1[2]);
+int	key_release(int keycode, t_cub3d_data *data);
+int	key_press(int keycode, t_cub3d_data *data);
+void	handle_keys(t_cub3d_data *data);
+
+void	move_forward(t_cub3d_data *data);
+void	move_backward(t_cub3d_data *data);
+void	move_left(t_cub3d_data *data);
+void	move_right(t_cub3d_data *data);
+void	turn_left(t_cub3d_data *data);
+void	turn_right(t_cub3d_data *data);
+
 
 
 
