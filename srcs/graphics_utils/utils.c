@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 21:05:31 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/29 01:01:08 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/29 01:02:50 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,9 @@ int	ft_abs(int value)
 	if (value < 0)
 		return (-value);
 	return (value);
+}
+
+bool	is_player_spawn_pos(char c)
+{
+	return (c == 'N' || c == 'S' || c == 'E' || c == 'W');
 }
