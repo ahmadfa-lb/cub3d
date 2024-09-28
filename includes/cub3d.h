@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 23:59:11 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/28 20:37:16 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/28 20:39:41 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -251,7 +251,6 @@ typedef struct s_map_params // Specific struct helping for map parsing
 
 
 int	render(t_cub3d_data *data);
-static void	game_algorithm(t_cub3d_data *data);
 void	game_loop(t_cub3d_data *data);
 int	store_texture_path(t_cub3d_data *data, char **line_elements, int fd);
 void	store_player_pos(t_cub3d_data *data);

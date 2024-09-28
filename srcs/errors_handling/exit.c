@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:24:52 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/25 14:54:04 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/28 20:41:00 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	cub3d_exit(t_errors exit_code, t_cub3d_data *data)
 	{
 		data->utils.exit_funcs[exit_code]();
 	}
-	free_data(data);
+	free_everything(data);
 	if (exit_code == SUCCESS)
 		exit(EXIT_SUCCESS);
 	exit(EXIT_FAILURE);

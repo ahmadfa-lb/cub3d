@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:35:36 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/25 16:52:26 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/28 20:41:23 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ static void	texture_file_opening_test(t_cub3d_data *data, int settings_fd, char 
 		if (direction == 'E')
 			cub3d_exit(E_BAD_FILE_PATH, data);
 		else if (direction == 'N')
-			cub3e_exit(N_BAD_FILE_PATH, data);
+			cub3d_exit(N_BAD_FILE_PATH, data);
 		else if (direction == 'S')
-			cub3e_exit(S_BAD_FILE_PATH, data);
+			cub3d_exit(S_BAD_FILE_PATH, data);
 		else if (direction == 'W')
 			cub3d_exit(W_BAD_FILE_PATH, data);
 	}

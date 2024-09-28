@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:27:07 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/27 14:31:32 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/28 20:41:51 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static void	check_loaded_imgs(t_cub3d_data *data)
 {
 	if (!data->walls.west.img_ptr || !data->walls.east.img_ptr || \
 		!data->walls.south.img_ptr || !data->walls.north.img_ptr)
-		cub_exit(MLX_ERROR, data);
+		cub3d_exit(MLX_ERROR, data);
 	// if (!data->gun.shoot1.img_ptr || !data->gun.shoot2.img_ptr
 	// 	|| !data->gun.shoot3.img_ptr || !data->gun.std.img_ptr
 	// 	|| !data->gun.std2.img_ptr || !data->gun.std3.img_ptr
@@ -72,7 +72,7 @@ void	load_mlx(t_cub3d_data *data)
 {
 	data->mlx.mlx_ptr = mlx_init();
 	if (!data->mlx.mlx_ptr)
-		cub_exit(MLX_ERROR, data);
+		cub3d_exit(MLX_ERROR, data);
 	mlx_get_screen_size(data->mlx.mlx_ptr, &data->mlx.win_width,
 		&data->mlx.win_height);
 	data->mlx.win_ptr = mlx_new_window(data->mlx.mlx_ptr,
