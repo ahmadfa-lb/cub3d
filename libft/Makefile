@@ -6,7 +6,7 @@
 #    By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/07 09:28:36 by afarachi          #+#    #+#              #
-#    Updated: 2024/08/07 09:33:05 by afarachi         ###   ########.fr        #
+#    Updated: 2024/09/29 01:35:25 by afarachi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,6 @@ SRCS          = ${FT_LIBFT_DIR}ft_atoi.c \
                 ${FT_LIBFT_DIR}ft_putnbr_fd.c \
                 ${FT_LIBFT_DIR}ft_putstr_fd.c \
                 ${FT_LIBFT_DIR}ft_strchr.c \
-                ${FT_LIBFT_DIR}ft_strdup.c \
                 ${FT_LIBFT_DIR}ft_split.c \
                 ${FT_LIBFT_DIR}ft_strjoin.c \
                 ${FT_LIBFT_DIR}ft_strlcat.c \

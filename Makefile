@@ -6,7 +6,7 @@
 #    By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/27 14:35:51 by afarachi          #+#    #+#              #
-#    Updated: 2024/09/29 00:55:31 by afarachi         ###   ########.fr        #
+#    Updated: 2024/09/29 01:10:07 by afarachi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT_LIB) $(MLX_DIR)/libmlx.a
 	@echo "Linking..."
-	@$(CC) $(CFLAGS) $(OBJS) $(MLX_LINK) $(LIBFT_DIR) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) $(MLX_LINK) $(LIBFT_LIB) -o $(NAME)
 	@echo "Compilation completed."
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
