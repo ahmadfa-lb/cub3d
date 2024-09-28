@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   exit_messages5.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: imehdid <ismaelmehdid@student.42.fr>       +#+  +:+       +#+        */
+/*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/16 16:06:51 by imehdid           #+#    #+#             */
-/*   Updated: 2024/07/16 16:38:15 by imehdid          ###   ########.fr       */
+/*   Created: 2024/09/29 00:49:46 by afarachi          #+#    #+#             */
+/*   Updated: 2024/09/29 00:49:46 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+
+
+#include "../../../includes/cub3d.h"
 
 void	cub_exit_success(void)
 {

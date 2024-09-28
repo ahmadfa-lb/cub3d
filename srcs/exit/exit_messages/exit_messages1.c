@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   exit_messages1.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: imehdid <ismaelmehdid@student.42.fr>       +#+  +:+       +#+        */
+/*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/05 19:37:08 by imehdid           #+#    #+#             */
-/*   Updated: 2024/07/16 16:37:44 by imehdid          ###   ########.fr       */
+/*   Created: 2024/09/29 00:50:23 by afarachi          #+#    #+#             */
+/*   Updated: 2024/09/29 00:50:23 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../../includes/cub3d.h"
 
 void	bad_setting_format_error(void)
 {

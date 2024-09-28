@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   exit_messages3.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asyvash <asyvash@student.42.fr>            +#+  +:+       +#+        */
+/*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/05 19:38:05 by imehdid           #+#    #+#             */
-/*   Updated: 2024/07/15 22:55:21 by asyvash          ###   ########.fr       */
+/*   Created: 2024/09/29 00:50:06 by afarachi          #+#    #+#             */
+/*   Updated: 2024/09/29 00:50:06 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../../includes/cub3d.h"
 
 void	bad_identifier_error(void)
 {

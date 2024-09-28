@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   exit_messages4.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asyvash <asyvash@student.42.fr>            +#+  +:+       +#+        */
+/*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/06 22:38:35 by imehdid           #+#    #+#             */
-/*   Updated: 2024/07/15 22:26:54 by asyvash          ###   ########.fr       */
+/*   Created: 2024/09/29 00:49:55 by afarachi          #+#    #+#             */
+/*   Updated: 2024/09/29 00:49:55 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../../includes/cub3d.h"
 
 void	mlx_error(void)
 {
