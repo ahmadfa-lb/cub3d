@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:52:25 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/27 14:56:00 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/29 00:51:55 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	draw_map_elements(t_cub3d_data *dat, int i[2], float offset_x_y[2])
 		while (i[1] < (int)offset_x_y[0] + 2 * RANGE)
 		{
 			if (i[0] >= 0 && i[0] < dat->utils.map_height
-				&& i[1] >= 0 && i[1] < ft_strlen(dat->settings.map[i[0]]))
+				&& i[1] >= 0 && i[1] < ft_strlen1(dat->settings.map[i[0]]))
 			{
 				if (dat->settings.map[i[0]][i[1]] == '1')
 					draw_elem(dat, i, WHITE, offset_x_y);
