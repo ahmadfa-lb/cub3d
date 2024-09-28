@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:27:07 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/28 20:41:51 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/28 20:45:02 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	load_mlx(t_cub3d_data *data)
 	data->mlx.win_ptr = mlx_new_window(data->mlx.mlx_ptr,
 			data->mlx.win_width, data->mlx.win_height, "cub3D");
 	if (!data->mlx.win_ptr)
-		cub_exit(MLX_ERROR, data);
+		cub3d_exit(MLX_ERROR, data);
 	mlx_mouse_hide(data->mlx.mlx_ptr, data->mlx.win_ptr);
 	data->mlx.img = mlx_new_image(data->mlx.mlx_ptr, data->mlx.win_width,
 			data->mlx.win_height);
