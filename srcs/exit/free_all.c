@@ -14,20 +14,20 @@
 
 static void	destroy_mlx(t_cub3d_data *data)
 {
-	if (data->mlx.mlx_ptr && data->gun.shoot1.img_ptr)
-		mlx_destroy_image(data->mlx.mlx_ptr, data->gun.shoot1.img_ptr);
-	if (data->mlx.mlx_ptr && data->gun.shoot2.img_ptr)
-		mlx_destroy_image(data->mlx.mlx_ptr, data->gun.shoot2.img_ptr);
-	if (data->mlx.mlx_ptr && data->gun.shoot3.img_ptr)
-		mlx_destroy_image(data->mlx.mlx_ptr, data->gun.shoot3.img_ptr);
-	if (data->mlx.mlx_ptr && data->gun.std.img_ptr)
-		mlx_destroy_image(data->mlx.mlx_ptr, data->gun.std.img_ptr);
-	if (data->mlx.mlx_ptr && data->gun.std2.img_ptr)
-		mlx_destroy_image(data->mlx.mlx_ptr, data->gun.std2.img_ptr);
-	if (data->mlx.mlx_ptr && data->gun.std3.img_ptr)
-		mlx_destroy_image(data->mlx.mlx_ptr, data->gun.std3.img_ptr);
-	if (data->mlx.mlx_ptr && data->gun.std4.img_ptr)
-		mlx_destroy_image(data->mlx.mlx_ptr, data->gun.std4.img_ptr);
+	//if (data->mlx.mlx_ptr && data->gun.shoot1.img_ptr)
+	//	mlx_destroy_image(data->mlx.mlx_ptr, data->gun.shoot1.img_ptr);
+	//if (data->mlx.mlx_ptr && data->gun.shoot2.img_ptr)
+	//	mlx_destroy_image(data->mlx.mlx_ptr, data->gun.shoot2.img_ptr);
+	//if (data->mlx.mlx_ptr && data->gun.shoot3.img_ptr)
+	//	mlx_destroy_image(data->mlx.mlx_ptr, data->gun.shoot3.img_ptr);
+	//if (data->mlx.mlx_ptr && data->gun.std.img_ptr)
+	//	mlx_destroy_image(data->mlx.mlx_ptr, data->gun.std.img_ptr);
+	//if (data->mlx.mlx_ptr && data->gun.std2.img_ptr)
+	//	mlx_destroy_image(data->mlx.mlx_ptr, data->gun.std2.img_ptr);
+	//if (data->mlx.mlx_ptr && data->gun.std3.img_ptr)
+	//	mlx_destroy_image(data->mlx.mlx_ptr, data->gun.std3.img_ptr);
+	//if (data->mlx.mlx_ptr && data->gun.std4.img_ptr)
+	//	mlx_destroy_image(data->mlx.mlx_ptr, data->gun.std4.img_ptr);
 	if (data->mlx.mlx_ptr && data->mlx.img)
 		mlx_destroy_image(data->mlx.mlx_ptr, data->mlx.img);
 	if (data->mlx.mlx_ptr && data->mlx.win_ptr)
@@ -74,7 +74,7 @@ static void	free_colors(t_cub3d_data *data)
 	}
 }
 
-static void	free_texture_path(t_cub_data *data)
+static void	free_texture_path(t_cub3d_data *data)
 {
 	if (data->settings.e_texture_path)
 	{
@@ -98,7 +98,7 @@ static void	free_texture_path(t_cub_data *data)
 	}
 }
 
-void	free_everything(t_cub_data *data)
+void	free_everything(t_cub3d_data *data)
 {
 	if (data->mlx.mlx_ptr && data->mlx.win_ptr)
 		mlx_mouse_show(data->mlx.mlx_ptr, data->mlx.win_ptr);
