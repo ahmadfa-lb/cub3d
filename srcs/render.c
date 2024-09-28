@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 19:10:35 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/28 19:11:03 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/28 19:51:33 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,18 @@ int	render(t_cub3d_data *data)
 	if (!gun_frame)
 		gun_frame = 0;
 	current_time = get_current_time_in_ms();
-
+	if (current_time - last_time > 1500)
+	{
+		last_time = current_time;
+		gun_frame = (gun_frame + 1) % 2;
+	}
+	handle_keys(data);
+	fill_background(data, 0, 0);
+	raycasting(data);
+	draw_minimap(data, 0, 0);
+	weapon_logic(data, gun_frame);
+	mlx_put_image_to_window(data->mlx.mlx_ptr,
+		data->mlx.win_ptr, data->mlx.img, 0, 0);
+	return (0);
 	return (0);
 }
