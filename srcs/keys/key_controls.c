@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 15:55:54 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/27 15:58:18 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/28 20:43:48 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	key_release(int keycode, t_cub3d_data *data)
 int	key_press(int keycode, t_cub3d_data *data)
 {
 	if (keycode == ESC)
-		cub_exit(SUCCESS, data);
+		cub3d_exit(SUCCESS, data);
 	if (keycode == W)
 		data->keys.keys[KEY_W] = true;
 	else if (keycode == A)
