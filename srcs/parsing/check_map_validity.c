@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 19:24:51 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/25 19:28:46 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/29 01:03:53 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static bool	check_neighbours(char **map, int i, int j, int map_height)
 			ni = i + x;
 			nj = j + y;
 			if (nj < 0 || nj >= map_height || ni < 0
-				|| ni >= ft_strlen(map[nj]) || !map[nj][ni]
+				|| ni >= ft_strlen1(map[nj]) || !map[nj][ni]
 				|| map[nj][ni] == ' ')
 				return (false);
 			x++;
