@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:35:36 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/28 20:41:23 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/28 20:43:08 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	store_texture_path(t_cub3d_data *data, char **line_elements, int fd)
 			reach_eof_to_avoid_leaks(NULL, fd);
 			close(fd);
 			free_double_array(&line_elements);
-			cub_exit(OTHER, data);
+			cub3d_exit(OTHER, data);
 		}
 		store_texture_path_ptr(data, direction, path);
 		return (0);
