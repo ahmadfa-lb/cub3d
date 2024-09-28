@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 21:05:31 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/28 21:05:49 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/29 00:54:02 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,21 @@ bool	is_only_spaces(char *line)
 		i++;
 	}
 	return (true);
+}
+
+bool	is_space(char check)
+{
+	if (check != ' ' && check != '\n' && check != '\t')
+		return (false);
+	return (true);
+}
+
+int	ft_strcmp(const char *first, const char *second)
+{
+	while (*first && (*first == *second))
+	{
+		first++;
+		second++;
+	}
+	return (*(unsigned char *)first - *(unsigned char *)second);
 }
