@@ -12,7 +12,7 @@
 
 #include "../../includes/cub3d.h"
 
-static void	destroy_mlx(t_cub_data *data)
+static void	destroy_mlx(t_cub3d_data *data)
 {
 	if (data->mlx.mlx_ptr && data->gun.shoot1.img_ptr)
 		mlx_destroy_image(data->mlx.mlx_ptr, data->gun.shoot1.img_ptr);
@@ -41,7 +41,7 @@ static void	destroy_mlx(t_cub_data *data)
 	}
 }
 
-static void	free_walls_and_frame_imgs(t_cub_data *data)
+static void	free_walls_and_frame_imgs(t_cub3d_data *data)
 {
 	if (data->mlx.mlx_ptr && data->walls.east.img_ptr)
 		mlx_destroy_image(data->mlx.mlx_ptr, data->walls.east.img_ptr);
@@ -60,7 +60,7 @@ static void	free_walls_and_frame_imgs(t_cub_data *data)
 	}
 }
 
-static void	free_colors(t_cub_data *data)
+static void	free_colors(t_cub3d_data *data)
 {
 	if (data->settings.ceiling_color)
 	{

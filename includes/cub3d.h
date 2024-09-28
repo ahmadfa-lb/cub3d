@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 23:59:11 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/27 15:22:15 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/28 20:22:21 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -261,6 +261,33 @@ void	free_double_array(char ***array_ptr);
 void	reach_eof_to_avoid_leaks(char *line, int fd);
 int		double_array_len(char **dArray);
 void	check_map_validity(t_cub3d_data *data, int fd);
+
+void	init_data(struct s_cub3d_data *data);
+void	get_imgs_addr(t_cub3d_data *data);
+void	load_mlx(t_cub3d_data *data);
+
+
+void	bad_setting_format_error(void);
+void	other_msg(void);
+void	bad_file_extention_msg(void);
+void	bad_arguments_msg(void);
+void	duplicated_setting_error(void);
+void	east_bad_file_path_error(void);
+void	north_bad_file_path_error(void);
+void	south_bad_file_path_error(void);
+void	west_bad_file_path_error(void);
+void	bad_identifier_error(void);
+void	bad_color_code_format_error(void);
+void	missing_setting_error(void);
+void	missing_map_error(void);
+void	unclosed_map_error(void);
+void	mlx_error(void);
+void	map_wrong_character_error(void);
+void	map_duplicated_player_spawn_pos(void);
+void	map_missing_player_spawn_pos(void);
+void	map_missing(void);
+void	cub_exit_success(void);
+
 
 
 #endif
