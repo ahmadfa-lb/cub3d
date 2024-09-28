@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 23:59:11 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/29 00:55:58 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/29 01:01:14 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -321,8 +321,8 @@ void	turn_right(t_cub3d_data *data);
 
 bool	is_only_spaces(char *line);
 bool	is_space(char check);
-int	ft_strcmp(const char *first, const char *second);
-
+int	ft_strcmp1(const char *first, const char *second);
+int	ft_abs(int value);
 
 
 
