@@ -6,7 +6,7 @@
 #    By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/27 14:35:51 by afarachi          #+#    #+#              #
-#    Updated: 2024/09/28 20:17:22 by afarachi         ###   ########.fr        #
+#    Updated: 2024/09/29 00:55:31 by afarachi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ SRCS = $(SRC_DIR)/data_init/data_init.c \
 		$(SRC_DIR)/graphics/walls_textures.c \
 		$(SRC_DIR)/graphics_utils/graphics_utils.c \
 		$(SRC_DIR)/graphics_utils/put_pixels.c \
+		$(SRC_DIR)/graphics_utils/utils.c \
 		$(SRC_DIR)/keys/key_controls.c \
 		$(SRC_DIR)/keys/process_motion.c \
 		$(SRC_DIR)/keys/process_turn.c \
