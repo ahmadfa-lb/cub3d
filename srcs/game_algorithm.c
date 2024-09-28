@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 19:00:10 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/28 19:02:49 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/28 19:09:17 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	game_algorithm(t_cub3d_data *data)
 	mlx_loop_hook(data->mlx.mlx_ptr, render, data);
 }
 
-void	game_loop(t_cub_data *data)
+void	game_loop(t_cub3d_data *data)
 {
 	game_algorithm(data);
 	mlx_hook(data->mlx.win_ptr, 2, 1L << 0, key_press, data);
