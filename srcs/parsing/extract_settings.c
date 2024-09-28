@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 15:33:43 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/27 14:33:16 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/29 01:07:05 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	handle_line(struct s_cub3d_data *data, char *line, int fd, int line_
 	{
 		if(line_length != EXPECTED_SETTING_PARTS)
 			handle_error_and_exit(elements, fd, data);
-		store_setting(data, elements, fd);
+		save_essential_setting(data, elements, fd);
 	}
 }
 
