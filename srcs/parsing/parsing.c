@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:06:25 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/25 15:01:48 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/29 01:05:07 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	check_file_extension(struct s_cub3d_data *data)
 
 void	parsing(struct s_cub3d_data *data)
 {
-	init_data();
+	init_data(data);
 	if (data->utils.argc != ARGUMENTS_REQUIRED)
 	{
 		cub3d_exit(BAD_ARGUMENTS, data);
