@@ -6,11 +6,11 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 15:25:25 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/27 15:26:18 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/28 18:59:35 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 int	scale_player_pos(float pos)
 {

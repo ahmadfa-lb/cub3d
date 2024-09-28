@@ -6,11 +6,11 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 15:20:35 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/27 15:22:44 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/28 18:59:39 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 int	get_sx_sy(int var1, int var2)
 {
