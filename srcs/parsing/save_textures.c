@@ -6,15 +6,19 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:35:36 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/28 20:43:08 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/29 11:16:53 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-static void	texture_file_opening_test(t_cub3d_data *data, int settings_fd, char **line_elements, char direction)
+static void	texture_file_opening_test(
+	t_cub3d_data *cub_data,
+	int settings_fd,
+	char **line_elements,
+	char direction)
 {
-	int fd;
+	int	fd;
 
 	fd = open(line_elements[1], O_RDONLY);
 	if (fd == -1)
@@ -23,13 +27,13 @@ static void	texture_file_opening_test(t_cub3d_data *data, int settings_fd, char 
 		reach_eof_to_avoid_leaks(NULL, settings_fd);
 		close(settings_fd);
 		if (direction == 'E')
-			cub3d_exit(E_BAD_FILE_PATH, data);
+			cub3d_exit(E_BAD_FILE_PATH, cub_data);
 		else if (direction == 'N')
-			cub3d_exit(N_BAD_FILE_PATH, data);
+			cub3d_exit(N_BAD_FILE_PATH, cub_data);
 		else if (direction == 'S')
-			cub3d_exit(S_BAD_FILE_PATH, data);
+			cub3d_exit(S_BAD_FILE_PATH, cub_data);
 		else if (direction == 'W')
-			cub3d_exit(W_BAD_FILE_PATH, data);
+			cub3d_exit(W_BAD_FILE_PATH, cub_data);
 	}
 	close(fd);
 }
