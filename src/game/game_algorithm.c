@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   game_algorithm.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/28 19:10:35 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/28 21:04:28 by afarachi         ###   ########.fr       */
+/*   Created: 2024/09/28 19:00:10 by afarachi          #+#    #+#             */
+/*   Updated: 2024/09/30 18:11:30 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../include/cub3D.h"
 
-int	render(t_cub3d_data *data)
+static void	game_algorithm(t_cub_data *data)
 {
-	static long	last_time;
-	static int	gun_frame;
-	long		current_time;
-
-	if (!last_time)
-		last_time = 0;
-	if (!gun_frame)
-		gun_frame = 0;
-	current_time = get_current_time_in_ms();
-	if (current_time - last_time > 1500)
-	{
-		last_time = current_time;
-		gun_frame = (gun_frame + 1) % 2;
-	}
-	handle_keys(data);
 	fill_background(data, 0, 0);
 	raycasting(data);
 	draw_minimap(data, 0, 0);
-	//weapon_logic(data, gun_frame);
 	mlx_put_image_to_window(data->mlx.mlx_ptr,
 		data->mlx.win_ptr, data->mlx.img, 0, 0);
-	return (0);
-	return (0);
+	mlx_loop_hook(data->mlx.mlx_ptr, render, data);
+}
+
+void	game_loop(t_cub_data *data)
+{
+	game_algorithm(data);
+	mlx_hook(data->mlx.win_ptr, 2, 1L << 0, key_press, data);
+	mlx_hook(data->mlx.win_ptr, 3, 1L << 1, key_release, data);
+	mlx_hook(data->mlx.win_ptr, 17, 1L << 17,
+		(void *)free_everything, &(*data));
+	//mlx_hook(data->mlx.win_ptr, 6, 1L << 6, mouse_hook_turn, data);
+	//mlx_mouse_hook(data->mlx.win_ptr, mouse_hook_shoot, data);
+	mlx_loop(data->mlx.mlx_ptr);
 }
