@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   data_init.c                                        :+:      :+:    :+:   */
+/*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:20:20 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/27 14:23:46 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/30 18:19:05 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../include/cub3D.h"
 
-static void	set_null_to_ptrs(t_cub3d_data *data)
+static void	set_null_to_ptrs(t_cub_data *data)
 {
 	// data->gun.shoot1.img_ptr = NULL;
 	// data->gun.shoot2.img_ptr = NULL;
@@ -34,39 +34,38 @@ static void	set_null_to_ptrs(t_cub3d_data *data)
 	data->walls.north.img_ptr = NULL;
 	data->walls.south.img_ptr = NULL;
 	data->walls.west.img_ptr = NULL;
-	data->walls.door.img_ptr = NULL;
+	// data->walls.door.img_ptr = NULL;
 	// data->gun.shoot_frame = 0;
 	// data->gun.is_shooting = false;
 	// data->gun.last_shoot_time = 0;
-	data->walls.door.img_ptr = NULL;
+	// data->walls.door.img_ptr = NULL;
 }
 
-
-static void	init_exit_functions_array(struct s_cub3d_data *data)
+static void	init_exit_functions_array(struct s_cub_data *cub_data)
 {
-	data->utils.exit_funcs[0] = cub_exit_success;
-	data->utils.exit_funcs[1] = mlx_error;
-	data->utils.exit_funcs[2] = bad_arguments_msg;
-	data->utils.exit_funcs[3] = missing_setting_error;
-	data->utils.exit_funcs[4] = east_bad_file_path_error;
-	data->utils.exit_funcs[5] = north_bad_file_path_error;
-	data->utils.exit_funcs[6] = south_bad_file_path_error;
-	data->utils.exit_funcs[7] = west_bad_file_path_error;
-	data->utils.exit_funcs[8] = duplicated_setting_error;
-	data->utils.exit_funcs[9] = bad_setting_format_error;
-	data->utils.exit_funcs[10] = bad_color_code_format_error;
-	data->utils.exit_funcs[11] = bad_file_extention_msg;
-	data->utils.exit_funcs[12] = bad_identifier_error;
-	data->utils.exit_funcs[13] = map_missing;
-	data->utils.exit_funcs[14] = unclosed_map_error;
-	data->utils.exit_funcs[15] = map_wrong_character_error;
-	data->utils.exit_funcs[16] = map_missing_player_spawn_pos;
-	data->utils.exit_funcs[17] = map_duplicated_player_spawn_pos;
-	data->utils.exit_funcs[18] = missing_map_error;
-	data->utils.exit_funcs[19] = other_msg;
+	cub_data->utils.exit_funcs[0] = cub_exit_success;
+	cub_data->utils.exit_funcs[1] = mlx_error;
+	cub_data->utils.exit_funcs[2] = bad_arguments_msg;
+	cub_data->utils.exit_funcs[3] = missing_setting_error;
+	cub_data->utils.exit_funcs[4] = east_bad_file_path_error;
+	cub_data->utils.exit_funcs[5] = north_bad_file_path_error;
+	cub_data->utils.exit_funcs[6] = south_bad_file_path_error;
+	cub_data->utils.exit_funcs[7] = west_bad_file_path_error;
+	cub_data->utils.exit_funcs[8] = duplicated_setting_error;
+	cub_data->utils.exit_funcs[9] = bad_setting_format_error;
+	cub_data->utils.exit_funcs[10] = bad_color_code_format_error;
+	cub_data->utils.exit_funcs[11] = bad_file_extention_msg;
+	cub_data->utils.exit_funcs[12] = bad_identifier_error;
+	cub_data->utils.exit_funcs[13] = map_missing;
+	cub_data->utils.exit_funcs[14] = unclosed_map_error;
+	cub_data->utils.exit_funcs[15] = map_wrong_character_error;
+	cub_data->utils.exit_funcs[16] = map_missing_player_spawn_pos;
+	cub_data->utils.exit_funcs[17] = map_duplicated_player_spawn_pos;
+	cub_data->utils.exit_funcs[18] = missing_map_error;
+	cub_data->utils.exit_funcs[19] = other_msg;
 }
 
-static void	init_cub_data(struct s_cub3d_data *data)
+static void	init_cub_data(struct s_cub_data *data)
 {
 	data->utils.settings_already_set = 0;
 	data->settings.ceiling_color = NULL;
@@ -89,9 +88,9 @@ static void	init_cub_data(struct s_cub3d_data *data)
 	data->utils.minimap.cell_height = MINIMAP_SIZE / (2 * RANGE);
 }
 
-void	init_data(struct s_cub3d_data *data)
+void	init_data(struct s_cub_data *cub_data)
 {
-	init_cub_data(data);
-	init_exit_functions_array(data);
-	set_null_to_ptrs(data);
+	init_cub_data(cub_data);
+	init_exit_functions_array(cub_data);
+	set_null_to_ptrs(cub_data);
 }
