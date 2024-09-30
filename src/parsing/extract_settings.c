@@ -6,21 +6,28 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 15:33:43 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/29 01:07:05 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/30 19:39:11 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../include/cub3D.h"
 
-static void	handle_error_and_exit(char **line_elements, int fd, t_cub3d_data *cub_data)
+static void	handle_error_and_exit(
+	char **line_elements,
+	int fd,
+	t_cub_data *cub_data)
 {
 	free_double_array(&line_elements);
 	reach_eof_to_avoid_leaks(NULL, fd);
 	close(fd);
-	cub3d_exit(BAD_SETTING_FORMAT, cub_data);
+	cub_exit(BAD_SETTING_FORMAT, cub_data);
 }
 
-static void	handle_line(struct s_cub3d_data *data, char *line, int fd, int line_length)
+static void	handle_line(
+	struct s_cub_data *cub_data,
+	char *line,
+	int fd,
+	int line_length)
 {
 	char	**elements;
 	char	*last_element;
@@ -28,47 +35,47 @@ static void	handle_line(struct s_cub3d_data *data, char *line, int fd, int line_
 	elements = ft_split(line, ' ');
 	free(line);
 	if (!elements)
-		handle_error_and_exit(elements, fd, data);
+		handle_error_and_exit(elements, fd, cub_data);
 	line_length = double_array_len(elements);
 	last_element = elements[line_length - 1];
 	elements[line_length - 1] = ft_strtrim(elements[line_length - 1], "\n");
 	if (!elements[line_length - 1])
 	{
 		free(last_element);
-		handle_error_and_exit(elements, fd, data);
+		handle_error_and_exit(elements, fd, cub_data);
 	}
 	free(last_element);
-	if (data->utils.settings_already_set != BASE_SETTINGS_REQUIRED)
+	if (cub_data->utils.settings_already_set != BASE_SETTINGS_REQUIRED)
 	{
-		if(line_length != EXPECTED_SETTING_PARTS)
-			handle_error_and_exit(elements, fd, data);
-		save_essential_setting(data, elements, fd);
+		if (line_length != EXPECTED_SETTING_PARTS)
+			handle_error_and_exit(elements, fd, cub_data);
+		store_setting(cub_data, elements, fd);
 	}
 }
 
-void	extract_settings(struct s_cub3d_data *data)
+void	extract_settings(struct s_cub_data *cub_data)
 {
 	int		fd;
 	char	*line;
 
-	fd = open(data->utils.map_path, O_RDONLY);
+	fd = open(cub_data->utils.map_path, O_RDONLY);
 	if (fd == -1)
-		cub3d_exit(OTHER, data);
+		cub_exit(OTHER, cub_data);
 	line = get_next_line(fd);
 	while (line
-		&& data->utils.settings_already_set != BASE_SETTINGS_REQUIRED)
+		&& cub_data->utils.settings_already_set != BASE_SETTINGS_REQUIRED)
 	{
 		if (!is_only_spaces(line))
-			handle_line(data, line, fd, 0);
+			handle_line(cub_data, line, fd, 0);
 		else
 			free(line);
 		line = get_next_line(fd);
 	}
-	if (!line && data->utils.settings_already_set != BASE_SETTINGS_REQUIRED)
+	if (!line && cub_data->utils.settings_already_set != BASE_SETTINGS_REQUIRED)
 	{
 		close (fd);
-		cub3d_exit(MISSING_SETTING, data);
+		cub_exit(MISSING_SETTING, cub_data);
 	}
-	store_map(data, line, fd);
+	store_map(cub_data, line, fd);
 	close(fd);
 }

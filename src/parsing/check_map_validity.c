@@ -6,21 +6,23 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 19:24:51 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/30 13:34:08 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/30 19:38:54 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../include/cub3D.h"
 
 static bool	is_explorable(char **map, int i, int j)
 {
 	return (map[j][i] == '0'
-		|| is_player_spawn_pos(map[j][i]));
+		|| is_player_spawn_pos(map[j][i])
+		|| map[j][i] == 'O'
+		|| map[j][i] == 'C');
 }
 
 static bool	is_valid_char(char c)
 {
-	return (c != '0' && c != '1' && c != ' ');
+	return (c != '0' && c != '1' && c != ' ' && c != 'O' && c != 'C');
 }
 
 static bool	check_neighbours(char **map, int i, int j, int map_height)
@@ -39,7 +41,7 @@ static bool	check_neighbours(char **map, int i, int j, int map_height)
 			ni = i + x;
 			nj = j + y;
 			if (nj < 0 || nj >= map_height || ni < 0
-				|| ni >= ft_strlen1(map[nj]) || !map[nj][ni]
+				|| ni >= ft_strlen(map[nj]) || !map[nj][ni]
 				|| map[nj][ni] == ' ')
 				return (false);
 			x++;
@@ -50,7 +52,7 @@ static bool	check_neighbours(char **map, int i, int j, int map_height)
 }
 
 static void	check_map_closed(
-	t_cub3d_data *data,
+	t_cub_data *cub_data,
 	char **map,
 	int map_height,
 	int fd)
@@ -68,13 +70,13 @@ static void	check_map_closed(
 			if (is_valid_char(map[j][i]) && !is_player_spawn_pos(map[j][i]))
 			{
 				close(fd);
-				cub3d_exit(MAP_WRONG_CHARACTER, data);
+				cub_exit(MAP_WRONG_CHARACTER, cub_data);
 			}
 			if (is_explorable(map, i, j)
 				&& !check_neighbours(map, i, j, map_height))
 			{
 				close(fd);
-				cub3d_exit(MAP_UNCLOSED, data);
+				cub_exit(MAP_UNCLOSED, cub_data);
 			}
 			i++;
 		}
@@ -82,16 +84,16 @@ static void	check_map_closed(
 	}
 }
 
-void	check_map_validity(t_cub3d_data *data, int fd)
+void	check_map_validity(t_cub_data *cub_data, int fd)
 {
-	if (!data->settings.map)
+	if (!cub_data->settings.map)
 	{
 		close(fd);
-		cub3d_exit(MAP_MISSING, data);
+		cub_exit(MAP_MISSING, cub_data);
 	}
 	check_map_closed(
-		data,
-		data->settings.map,
-		double_array_len(data->settings.map),
+		cub_data,
+		cub_data->settings.map,
+		double_array_len(cub_data->settings.map),
 		fd);
 }

@@ -6,31 +6,31 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:06:25 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/29 01:05:07 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/30 19:39:44 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../include/cub3D.h"
 
-void	check_file_extension(struct s_cub3d_data *data)
+static void	check_file_extention(struct s_cub_data *cub_data)
 {
-	char	*extension;
+	char	*ext;
 
-	extension = ft_strrchr(data->utils.map_path, '.');
-	if (!extension || ft_strcmp(extension, FILE_EXTENTION) != 0)
+	ext = ft_strrchr(cub_data->utils.map_path, '.');
+	if (!ext || ft_strcmp(ext, FILE_EXTENTION) != 0)
 	{
-		cub3d_exit(BAD_FILE_EXTENTION, data);
+		cub_exit(BAD_FILE_EXTENTION, cub_data);
 	}
 }
 
-void	parsing(struct s_cub3d_data *data)
+void	parsing(struct s_cub_data *cub_data)
 {
-	init_data(data);
-	if (data->utils.argc != ARGUMENTS_REQUIRED)
+	init_data(cub_data);
+	if (cub_data->utils.argc != ARGUMENTS_REQUIRED)
 	{
-		cub3d_exit(BAD_ARGUMENTS, data);
+		cub_exit(BAD_ARGUMENTS, cub_data);
 	}
-	data->utils.map_path = data->utils.argv[1];
-	check_file_extension(data);
-	extract_settings(data);
+	cub_data->utils.map_path = cub_data->utils.argv[1];
+	check_file_extention(cub_data);
+	extract_settings(cub_data);
 }
