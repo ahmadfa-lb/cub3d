@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit.c                                             :+:      :+:    :+:   */
+/*   doors.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 14:24:52 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/28 20:41:00 by afarachi         ###   ########.fr       */
+/*   Created: 2024/09/25 15:33:43 by afarachi          #+#    #+#             */
+/*   Updated: 2024/09/30 13:43:10 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../../include/cub3D.h"
 
-void	cub3d_exit(t_errors exit_code, t_cub3d_data *data)
-{
-	if (exit_code < sizeof(data->utils.exit_funcs)
-		/ sizeof(data->utils.exit_funcs[0]))
-	{
-		data->utils.exit_funcs[exit_code]();
-	}
-	free_everything(data);
-	if (exit_code == SUCCESS)
-		exit(EXIT_SUCCESS);
-	exit(EXIT_FAILURE);
-}
+// void	get_looking_door_values(t_ray_cast *ray, char map_value)
+// {
+// 	if (map_value == 'C' || map_value == 'O')
+// 	{
+// 		ray->player_facing_door = true;
+// 		ray->y_faced_door = ray->map_y;
+// 		ray->x_faced_door = ray->map_x;
+// 	}
+// 	ray->door_hit = (map_value == 'C' || map_value == 'O');
+// }

@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/27 14:52:25 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/29 00:51:55 by afarachi         ###   ########.fr       */
+/*   Created: 2024/09/25 15:33:43 by afarachi          #+#    #+#             */
+/*   Updated: 2024/09/30 13:44:26 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../../include/cub3D.h"
 
 static void	draw_elem(
-	t_cub3d_data *data,
+	t_cub_data *data,
 	int i[2],
 	int color,
 	float offset_x_y[2])
@@ -43,7 +43,7 @@ static void	draw_elem(
 	}
 }
 
-static void	draw_map_elements(t_cub3d_data *dat, int i[2], float offset_x_y[2])
+static void	draw_map_elements(t_cub_data *dat, int i[2], float offset_x_y[2])
 {
 	i[0] = (int)offset_x_y[1];
 	while (i[0] < (int)offset_x_y[1] + 2 * RANGE)
@@ -52,7 +52,7 @@ static void	draw_map_elements(t_cub3d_data *dat, int i[2], float offset_x_y[2])
 		while (i[1] < (int)offset_x_y[0] + 2 * RANGE)
 		{
 			if (i[0] >= 0 && i[0] < dat->utils.map_height
-				&& i[1] >= 0 && i[1] < ft_strlen1(dat->settings.map[i[0]]))
+				&& i[1] >= 0 && i[1] < ft_strlen(dat->settings.map[i[0]]))
 			{
 				if (dat->settings.map[i[0]][i[1]] == '1')
 					draw_elem(dat, i, WHITE, offset_x_y);
@@ -69,7 +69,7 @@ static void	draw_map_elements(t_cub3d_data *dat, int i[2], float offset_x_y[2])
 	}
 }
 
-static void	draw_player_on_minimap(t_cub3d_data *data, int x, int y)
+static void	draw_player_on_minimap(t_cub_data *data, int x, int y)
 {
 	int	start_x;
 	int	start_y;
@@ -94,7 +94,7 @@ static void	draw_player_on_minimap(t_cub3d_data *data, int x, int y)
 	}
 }
 
-static void	draw_view_direction(t_cub3d_data *data)
+static void	draw_view_direction(t_cub_data *data)
 {
 	int	start_x_y[2];
 	int	end_x_y[2];
@@ -108,7 +108,7 @@ static void	draw_view_direction(t_cub3d_data *data)
 	bresenham_line_draw(data, start_x_y, end_x_y);
 }
 
-void	draw_minimap(t_cub3d_data *data, int x, int y)
+void	draw_minimap(t_cub_data *data, int x, int y)
 {
 	int		i[2];
 	float	offset_x_y[2];

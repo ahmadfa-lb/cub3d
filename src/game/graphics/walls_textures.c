@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/27 15:31:43 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/27 15:32:48 by afarachi         ###   ########.fr       */
+/*   Created: 2024/09/25 15:33:43 by afarachi          #+#    #+#             */
+/*   Updated: 2024/09/30 13:46:18 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../../include/cub3D.h"
 
 static int	get_texture_color(t_img *texture, int x, int y)
 {
@@ -19,7 +19,7 @@ static int	get_texture_color(t_img *texture, int x, int y)
 }
 
 static void	get_wall_texture_coords(
-	t_cub3d_data *data,
+	t_cub_data *data,
 	t_ray_cast *ray,
 	t_img *texture)
 {
@@ -36,7 +36,7 @@ static void	get_wall_texture_coords(
 		ray->texture_x = texture->width - ray->texture_x - 1;
 }
 
-static void	put_wall(t_cub3d_data *data, t_ray_cast *ray, t_img *texture)
+static void	put_wall(t_cub_data *data, t_ray_cast *ray, t_img *texture)
 {
 	int				y;
 	unsigned int	color;
@@ -58,7 +58,7 @@ static void	put_wall(t_cub3d_data *data, t_ray_cast *ray, t_img *texture)
 	}
 }
 
-void	put_wall_texture(t_cub3d_data *data, t_ray_cast *ray)
+void	put_wall_texture(t_cub_data *data, t_ray_cast *ray)
 {
 	if (ray->door_hit)
 		put_wall(data, ray, &data->walls.door);
