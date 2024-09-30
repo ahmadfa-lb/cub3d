@@ -6,89 +6,92 @@
 #    By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/27 14:35:51 by afarachi          #+#    #+#              #
-#    Updated: 2024/09/29 01:10:07 by afarachi         ###   ########.fr        #
+#    Updated: 2024/09/30 20:06:21 by afarachi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = cub3d
+NAME = cub3D
 
-SRC_DIR = srcs
-OBJ_DIR = obj
-INCLUDE_DIR = includes
-LIBFT_DIR = libft
-MLX_DIR = minilibx-linux
-LIBFT_LIB = $(LIBFT_DIR)/libft.a
+SRCS =  src/cub3D.c \
+		src/init_data/load_mlx.c \
+		src/init_data/get_imgs_addr.c \
+        src/init_data/init_data.c \
+        src/parsing/parsing.c \
+        src/parsing/check_map_validity.c \
+        src/parsing/extract_settings.c \
+        src/utils/exit/exit.c \
+        src/utils/exit/exit_messages/exit_messages1.c \
+        src/utils/exit/exit_messages/exit_messages2.c \
+        src/utils/exit/exit_messages/exit_messages3.c \
+        src/utils/exit/exit_messages/exit_messages4.c \
+		src/utils/exit/exit_messages/exit_messages5.c \
+        src/utils/other/utils.c \
+		src/utils/other/utils2.c \
+        src/utils/exit/free_all.c \
+        src/parsing/store_settings/store_base_settings.c \
+        src/parsing/store_settings/store_player_pos.c \
+        src/parsing/store_settings/store_colors.c \
+        src/parsing/store_settings/store_map.c \
+        src/parsing/store_settings/store_textures.c \
+        src/game/render.c \
+        src/game/game_algorithm.c \
+        src/game/graphics/floor_and_ceiling.c \
+		src/game/graphics/minimap.c \
+		src/game/graphics/raycasting.c \
+		src/game/graphics/doors.c \
+		src/game/graphics/walls_textures.c \
+        src/game/graphics/weapon.c \
+        src/game/utils/put_pixels.c \
+		src/game/utils/utils.c \
+        src/game/keys/key_controls.c \
+        src/game/keys/process_motion.c \
+        src/game/keys/process_turn.c \
+		src/game/keys/process_usage.c \
+        src/game/keys/mouse.c \
+        include/get_next_line/get_next_line.c \
+        include/get_next_line/get_next_line_utils.c \
+
+OBJS_DIR = ./objs/
+OBJS = $(patsubst src/%.c,$(OBJS_DIR)%.o,$(SRCS))
+
+CC = cc -g
+
+LIBFT_DIR = include/libft/libft.a
+
+MLX_DIR = include/minilibx-linux
+
 MLX_LINK = -L$(MLX_DIR) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -g -I$(INCLUDE_DIR)
+RM = rm -rf
 
-SRCS = $(SRC_DIR)/data_init/data_init.c \
-		$(SRC_DIR)/data_init/get_images_addr.c \
-		$(SRC_DIR)/data_init/load_mlx.c \
-		$(SRC_DIR)/errors_handling/exit.c \
-		$(SRC_DIR)/exit/exit_messages/exit_messages1.c \
-		$(SRC_DIR)/exit/exit_messages/exit_messages2.c \
-		$(SRC_DIR)/exit/exit_messages/exit_messages3.c \
-		$(SRC_DIR)/exit/exit_messages/exit_messages4.c \
-		$(SRC_DIR)/exit/exit_messages/exit_messages5.c \
-		$(SRC_DIR)/exit/free_all.c \
-		$(SRC_DIR)/graphics/floor_and_ceiling.c \
-		$(SRC_DIR)/graphics/minimap.c \
-		$(SRC_DIR)/graphics/raycasting.c \
-		$(SRC_DIR)/graphics/walls_textures.c \
-		$(SRC_DIR)/graphics_utils/graphics_utils.c \
-		$(SRC_DIR)/graphics_utils/put_pixels.c \
-		$(SRC_DIR)/graphics_utils/utils.c \
-		$(SRC_DIR)/keys/key_controls.c \
-		$(SRC_DIR)/keys/process_motion.c \
-		$(SRC_DIR)/keys/process_turn.c \
-		$(SRC_DIR)/parsing/check_map_validity.c \
-		$(SRC_DIR)/parsing/extract_settings.c \
-		$(SRC_DIR)/parsing/parsing_utils.c \
-		$(SRC_DIR)/parsing/parsing.c \
-		$(SRC_DIR)/parsing/save_colors.c \
-		$(SRC_DIR)/parsing/save_essential_settings.c \
-		$(SRC_DIR)/parsing/save_map.c \
-		$(SRC_DIR)/parsing/save_player_position.c \
-		$(SRC_DIR)/parsing/save_textures.c \
-		${SRC_DIR}/render.c \
-		${SRC_DIR}/game_algorithm.c	\
-		${SRC_DIR}/cub3d.c
-
-OBJS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
+CFLAGS = -Wall -Wextra -Werror -Iinclude
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT_LIB) $(MLX_DIR)/libmlx.a
-	@echo "Linking..."
-	@$(CC) $(CFLAGS) $(OBJS) $(MLX_LINK) $(LIBFT_LIB) -o $(NAME)
-	@echo "Compilation completed."
+bonus: all
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@mkdir -p $(dir $@)  # Create the necessary directories
-	@echo -n "Compiling $<... "; \
-	$(CC) $(CFLAGS) -c $< -o $@; \
-	echo "done."
+$(NAME): $(OBJS) $(LIBFT_DIR) $(MLX_DIR)/libmlx.a
+	$(CC) $(CFLAGS) $(OBJS) $(MLX_LINK) $(LIBFT_DIR) -o $(NAME)
 
-$(LIBFT_LIB):
-	@echo "Compiling libft..."
-	@$(MAKE) -C $(LIBFT_DIR)
-	@echo "Libft compilation completed."
+
+$(OBJS_DIR)%.o: src/%.c
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(LIBFT_DIR):
+	$(MAKE) -sC include/libft
 
 $(MLX_DIR)/libmlx.a:
 	$(MAKE) -C $(MLX_DIR)
 
 clean:
-	@echo "Cleaning up..."
-	@rm -rf $(OBJ_DIR) 
-	@$(MAKE) -C $(LIBFT_DIR) clean
-	@echo "Clean completed."
+	$(MAKE) clean -sC include/libft
+	$(RM) $(OBJS_DIR)
 
 fclean: clean
-	@rm -f $(NAME)
-	@$(MAKE) -C $(LIBFT_DIR) fclean
-	@$(MAKE) clean -C $(MLX_DIR)
+	$(MAKE) fclean -sC include/libft
+	$(MAKE) clean -C $(MLX_DIR)
+	$(RM) $(NAME)
 
 re: fclean all
 
