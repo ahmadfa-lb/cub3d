@@ -6,13 +6,13 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 15:55:54 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/28 20:43:48 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/30 18:49:39 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../../include/cub3D.h"
 
-int	key_release(int keycode, t_cub3d_data *data)
+int	key_release(int keycode, t_cub_data *data)
 {
 	if (keycode == W)
 		data->keys.keys[KEY_W] = false;
@@ -29,10 +29,10 @@ int	key_release(int keycode, t_cub3d_data *data)
 	return (0);
 }
 
-int	key_press(int keycode, t_cub3d_data *data)
+int	key_press(int keycode, t_cub_data *data)
 {
 	if (keycode == ESC)
-		cub3d_exit(SUCCESS, data);
+		cub_exit(SUCCESS, data);
 	if (keycode == W)
 		data->keys.keys[KEY_W] = true;
 	else if (keycode == A)
@@ -45,12 +45,12 @@ int	key_press(int keycode, t_cub3d_data *data)
 		data->keys.keys[KEY_LEFT] = true;
 	else if (keycode == RIGHT_ARROW)
 		data->keys.keys[KEY_RIGHT] = true;
-	// else if (keycode == E)
-	// 	open_or_close_door(data);
+	else if (keycode == E)
+		open_or_close_door(data);
 	return (0);
 }
 
-void	handle_keys(t_cub3d_data *data)
+void	handle_keys(t_cub_data *data)
 {
 	if (data->keys.keys[KEY_W])
 		move_forward(data);

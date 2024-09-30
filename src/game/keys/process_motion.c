@@ -6,13 +6,13 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 16:21:17 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/27 16:32:56 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/30 18:49:58 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../../include/cub3D.h"
 
-void	move_forward(t_cub3d_data *data)
+void	move_forward(t_cub_data *data)
 {
 	float	new_x;
 	float	new_y;
@@ -31,8 +31,7 @@ void	move_forward(t_cub3d_data *data)
 	}
 }
 
-
-void	move_backward(t_cub3d_data *data)
+void	move_backward(t_cub_data *data)
 {
 	float	new_x;
 	float	new_y;
@@ -51,7 +50,7 @@ void	move_backward(t_cub3d_data *data)
 	}
 }
 
-void	move_left(t_cub3d_data *data)
+void	move_left(t_cub_data *data)
 {
 	float	new_x;
 	float	new_y;
@@ -70,7 +69,7 @@ void	move_left(t_cub3d_data *data)
 	}
 }
 
-void	move_right(t_cub3d_data *data)
+void	move_right(t_cub_data *data)
 {
 	float	new_x;
 	float	new_y;
