@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 23:59:11 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/29 01:02:56 by afarachi         ###   ########.fr       */
+/*   Created: 2024/07/02 15:12:22 by imehdid           #+#    #+#             */
+/*   Updated: 2024/09/29 23:51:51 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "../minilibx-linux/mlx.h"
-# include "../libft/inc/libft.h"
+//=== Includes ------------------------------------------------------------===//
+
+# include "./minilibx-linux/mlx.h"
+# include "./libft/libft.h"
+# include "./get_next_line/get_next_line.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdbool.h>
@@ -22,14 +25,14 @@
 # include <math.h>
 # include <sys/time.h>
 
+//=== Macros --------------------------------------------------------------===//
 # define M_PI 3.14159265358979323846
-
 # define EXPECTED_SETTING_PARTS 2 // identifier -> value
 # define BASE_SETTINGS_REQUIRED 6 // TEXTURES PATH, FLOOR AND CEILING COLORS
 # define ARGUMENTS_REQUIRED 2
 # define FILE_EXTENTION ".cub"
 # define NBR_OF_ERRORS 20
-# define FRAME "./game_data/textures/minimap_frame.xpm"
+
 //=== Keys ----------------------------------------------------------------===//
 
 # define KEY_COUNT 6
@@ -60,22 +63,32 @@
 
 # define FOV 60.0f
 # define SENSITIVITY 5
-# define MOUSE_SENSITIVITY 0.015f
+# define MOUSE_SENSITIVITY 0.001f
 # define TRESHOLD 10
 # define STRAFE_SPEED 0.1f
 # define PLAYER_SPEED 0.2f
 # define HIT_BOX 0.2f
 # define MAX_DOOR_INTERACT_DISTANCE 1.7f
 
-typedef void	(*t_exit_func_ptr)(void);
+//=== Textures ------------------------------------------------------------===//
 
-typedef struct s_bresenham
-{
-	int	dx_dy[2];
-	int	sx_sy[2];
-	int	err;
-	int	e2;
-}	t_bresenham;
+# define GUN_IMG_1 "./game_data/textures/std1.xpm"
+# define GUN_IMG_2 "./game_data/textures/std2.xpm"
+# define GUN_IMG_3 "./game_data/textures/std3.xpm"
+# define GUN_IMG_4 "./game_data/textures/std4.xpm"
+# define SHOOT_IMG_1 "./game_data/textures/shoot.xpm"
+# define SHOOT_IMG_2 "./game_data/textures/shoot2.xpm"
+# define SHOOT_IMG_3 "./game_data/textures/shoot3.xpm"
+# define FRAME "./game_data/textures/minimap_frame.xpm"
+# define DOOR "./game_data/textures/door.xpm"
+
+//=== Data structures -----------------------------------------------------===//
+
+// If you add an error code, make sure you update the array of pointers to the
+// exit functions in 'init_exit_functions_array' function in the parsing.c file
+// as well as updating the NBR_OF_ERRORS macro up in the .h file.
+
+typedef void	(*t_exit_func_ptr)(void);
 
 typedef enum s_errors
 {
@@ -127,6 +140,22 @@ typedef struct s_img
 	int		height;
 }	t_img;
 
+typedef struct s_gun
+{
+	t_img	std;
+	t_img	std2;
+	t_img	std3;
+	t_img	std4;
+	t_img	shoot1;
+	t_img	shoot2;
+	t_img	shoot3;
+	t_img	*shoot_images[5];
+	t_img	*gun_images[2];
+	bool	is_shooting;
+	int		shoot_frame;
+	long	last_shoot_time;
+}	t_gun;
+
 typedef struct s_color
 {
 	unsigned char	r;
@@ -177,8 +206,6 @@ typedef struct s_mlx
 	int		edian;
 }	t_mlx;
 
-
-
 typedef struct s_player_data
 {
 	float			x;
@@ -227,49 +254,96 @@ typedef struct s_ray_cast
 	bool	hit;
 }	t_ray_cast;
 
-typedef struct s_cub3d_data
+typedef struct s_cub_data
 {
 	struct s_cub_settings	settings;
 	struct s_cub_utils		utils;
 	struct s_mlx			mlx;
 	struct s_player_data	player_data;
 	struct s_ray_cast		ray;
+	struct s_gun			gun;
 	struct s_walls			walls;
 	struct s_keys			keys;
-}	t_cub3d_data;
-
-
-
+}	t_cub_data;
 
 typedef struct s_map_params // Specific struct helping for map parsing
 {
 	char		**old_map;
 	char		*line;
 	int			fd;
-	t_cub3d_data	*cub_data;
+	t_cub_data	*cub_data;
 }	t_map_params;
 
+typedef struct s_bresenham
+{
+	int	dx_dy[2];
+	int	sx_sy[2];
+	int	err;
+	int	e2;
+}	t_bresenham;
 
-int	render(t_cub3d_data *data);
-void	game_loop(t_cub3d_data *data);
-int	store_texture_path(t_cub3d_data *data, char **line_elements, int fd);
-void	store_player_pos(t_cub3d_data *data);
-void	cub3d_exit(t_errors exit_code, t_cub3d_data *data);
-void	check_file_extension(struct s_cub3d_data *data);
-void	parsing(struct s_cub3d_data *data);
-int		store_texture_path(t_cub3d_data *data, char **line_elements, int fd);
-void	store_map(t_cub3d_data *data, char *old_line, int fd);
-int		store_colors(t_cub3d_data *data, char **line_elements, int fd, char id);
-void	free_double_array(char ***array_ptr);
+//=== Parsing -------------------------------------------------------------===//
+
+void	parsing(t_cub_data *cub_data);
+void	extract_settings(t_cub_data *cub_data);
+void	store_setting(t_cub_data *cub_data, char **elements, int fd);
+int		store_texture_path(t_cub_data *cub_data, char **line_elements, int fd);
+int		store_colors(
+			t_cub_data *cub_data,
+			char **line_elements,
+			int fd,
+			char id);
+void	store_map(t_cub_data *cub_data, char *line, int fd);
+void	store_player_pos(t_cub_data *cub_data);
+void	check_map_validity(t_cub_data *cub_data, int fd);
+
+//=== Game ----------------------------------------------------------------===//
+
+void	game_loop(t_cub_data *data);
+void	fill_background(t_cub_data *data, int x, int y);
+void	draw_minimap(t_cub_data *data, int x, int y);
+int		render(t_cub_data *cub_data);
+void	raycasting(t_cub_data *data);
+void	put_wall_texture(t_cub_data *data, t_ray_cast *ray);
+//void	weapon_logic(t_cub_data *data, int gun_frame);
+//void	get_looking_door_values(t_ray_cast *ray, char map_value);
+void	minimap_frame(t_cub_data *data);
+void	move_forward(t_cub_data *data);
+void	move_backward(t_cub_data *data);
+void	move_left(t_cub_data *data);
+void	move_right(t_cub_data *data);
+void	turn_left(t_cub_data *data);
+void	turn_right(t_cub_data *data);
+void	handle_keys(t_cub_data *data);
+void	open_or_close_door(t_cub_data *data);
+
+//=== Utils ---------------------------------------------------------------===//
+
+void	cub_exit(t_errors code, t_cub_data *cub_data);
+void	free_everything(t_cub_data *cub_data);
+int		ft_strcmp(const char *first, const char *second);
+bool	is_only_spaces(char *line);
+bool	is_space(char check);
+int		double_array_len(char **array);
+void	free_double_array(char ***array);
+bool	is_player_spawn_pos(char c);
 void	reach_eof_to_avoid_leaks(char *line, int fd);
-int		double_array_len(char **dArray);
-void	check_map_validity(t_cub3d_data *data, int fd);
-void	extract_settings(struct s_cub3d_data *data);
-void	save_essential_setting(struct s_cub3d_data *data, char **line_elements, int fd);
-void	init_data(struct s_cub3d_data *data);
-void	get_imgs_addr(t_cub3d_data *data);
-void	load_mlx(t_cub3d_data *data);
+void	load_mlx(t_cub_data *data);
+void	get_imgs_addr(t_cub_data *data);
+int		scale_player_pos(float pos);
+void	ft_mlx_pixel_put(t_cub_data *data, int x, int y, int color);
+void	bresenham_line_draw(t_cub_data *data, int x0_y0[2], int x1_y1[2]);
+long	get_current_time_in_ms(void);
+float	deg_to_rad(int a);
+int		key_press(int keycode, t_cub_data *data);
+int		key_release(int keycode, t_cub_data *data);
+//int		mouse_hook_shoot(int button, int x, int y, t_cub_data *data);
+//int		mouse_hook_turn(int x, int y, t_cub_data *data);
+float	ft_fabs(float value);
+int		ft_abs(int value);
+void	init_data(struct s_cub_data *cub_data);
 
+//=== Exit messages -------------------------------------------------------===//
 
 void	bad_setting_format_error(void);
 void	other_msg(void);
@@ -280,9 +354,9 @@ void	east_bad_file_path_error(void);
 void	north_bad_file_path_error(void);
 void	south_bad_file_path_error(void);
 void	west_bad_file_path_error(void);
-void	bad_identifier_error(void);
 void	bad_color_code_format_error(void);
 void	missing_setting_error(void);
+void	bad_identifier_error(void);
 void	missing_map_error(void);
 void	unclosed_map_error(void);
 void	mlx_error(void);
@@ -291,40 +365,5 @@ void	map_duplicated_player_spawn_pos(void);
 void	map_missing_player_spawn_pos(void);
 void	map_missing(void);
 void	cub_exit_success(void);
-
-
-void	free_everything(t_cub3d_data *data);
-void	fill_background(t_cub3d_data *data, int x, int y);
-void	draw_minimap(t_cub3d_data *data, int x, int y);
-void	raycasting(t_cub3d_data *data);
-void	put_wall_texture(t_cub3d_data *data, t_ray_cast *ray);
-
-int	scale_player_pos(float pos);
-void	minimap_frame(t_cub3d_data *data);
-long	get_current_time_in_ms(void);
-float	deg_to_rad(int a);
-float	ft_fabs(float value);
-int	get_sx_sy(int var1, int var2);
-void	ft_mlx_pixel_put(t_cub3d_data *data, int x, int y, int color);
-void	bresenham_line_draw(t_cub3d_data *data, int x0_y0[2], int x1_y1[2]);
-int	key_release(int keycode, t_cub3d_data *data);
-int	key_press(int keycode, t_cub3d_data *data);
-void	handle_keys(t_cub3d_data *data);
-
-void	move_forward(t_cub3d_data *data);
-void	move_backward(t_cub3d_data *data);
-void	move_left(t_cub3d_data *data);
-void	move_right(t_cub3d_data *data);
-void	turn_left(t_cub3d_data *data);
-void	turn_right(t_cub3d_data *data);
-
-
-bool	is_only_spaces(char *line);
-bool	is_space(char check);
-int	ft_strcmp1(const char *first, const char *second);
-int	ft_abs(int value);
-bool	is_player_spawn_pos(char c);
-
-
 
 #endif
