@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   save_map.c                                         :+:      :+:    :+:   */
+/*   store_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 18:22:23 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/25 18:25:33 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/30 19:29:00 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../../include/cub3D.h"
 
 static void	free_and_exit(t_map_params *params)
 {
 	free(params->line);
 	close(params->fd);
-	cub3d_exit(OTHER, params->cub_data);
+	cub_exit(OTHER, params->cub_data);
 }
 
 static void	copy_old_to_new(
@@ -64,13 +64,13 @@ static void	allocate_new_double_array(t_map_params *params)
 	params->old_map = new;
 }
 
-static void	no_map(t_cub3d_data *data, int fd)
+static void	no_map(t_cub_data *cub_data, int fd)
 {
 	close(fd);
-	cub3d_exit(NO_MAP_IN_FILE, data);
+	cub_exit(NO_MAP_IN_FILE, cub_data);
 }
 
-void	store_map(t_cub3d_data *data, char *old_line, int fd)
+void	store_map(t_cub_data *cub_data, char *old_line, int fd)
 {
 	char			*line;
 	t_map_params	params;
@@ -78,7 +78,7 @@ void	store_map(t_cub3d_data *data, char *old_line, int fd)
 	line = old_line;
 	params.fd = fd;
 	if (!line)
-		no_map(data, fd);
+		no_map(cub_data, fd);
 	while (line && is_only_spaces(line))
 	{
 		free(line);
@@ -86,14 +86,14 @@ void	store_map(t_cub3d_data *data, char *old_line, int fd)
 	}
 	while (line)
 	{
-		params.old_map = data->settings.map;
+		params.old_map = cub_data->settings.map;
 		params.line = line;
-		params.cub_data = data;
+		params.cub_data = cub_data;
 		allocate_new_double_array(&params);
-		data->settings.map = params.old_map;
+		cub_data->settings.map = params.old_map;
 		free(line);
 		line = get_next_line(fd);
 	}
-	check_map_validity(data, fd);
-	store_player_pos(data);
+	check_map_validity(cub_data, fd);
+	store_player_pos(cub_data);
 }

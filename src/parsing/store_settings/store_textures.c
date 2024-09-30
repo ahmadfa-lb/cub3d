@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   save_textures.c                                    :+:      :+:    :+:   */
+/*   store_textures.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:35:36 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/29 11:16:53 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/30 19:28:10 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../../include/cub3D.h"
 
 static void	texture_file_opening_test(
-	t_cub3d_data *cub_data,
+	t_cub_data *cub_data,
 	int settings_fd,
 	char **line_elements,
 	char direction)
@@ -27,18 +27,21 @@ static void	texture_file_opening_test(
 		reach_eof_to_avoid_leaks(NULL, settings_fd);
 		close(settings_fd);
 		if (direction == 'E')
-			cub3d_exit(E_BAD_FILE_PATH, cub_data);
+			cub_exit(E_BAD_FILE_PATH, cub_data);
 		else if (direction == 'N')
-			cub3d_exit(N_BAD_FILE_PATH, cub_data);
+			cub_exit(N_BAD_FILE_PATH, cub_data);
 		else if (direction == 'S')
-			cub3d_exit(S_BAD_FILE_PATH, cub_data);
+			cub_exit(S_BAD_FILE_PATH, cub_data);
 		else if (direction == 'W')
-			cub3d_exit(W_BAD_FILE_PATH, cub_data);
+			cub_exit(W_BAD_FILE_PATH, cub_data);
 	}
 	close(fd);
 }
 
-static void	store_texture_path_ptr(t_cub3d_data *cub_data, char direction, char *path)
+static void	store_texture_path_ptr(
+	t_cub_data *cub_data,
+	char direction,
+	char *path)
 {
 	if (direction == 'E')
 		cub_data->settings.e_texture_path = path;
@@ -50,7 +53,11 @@ static void	store_texture_path_ptr(t_cub3d_data *cub_data, char direction, char 
 		cub_data->settings.w_texture_path = path;
 }
 
-static void	check_for_duplicate_settings(t_cub3d_data *cub_data, char direction, char **line_elements, int fd)
+static void	check_for_duplicate_settings(
+	t_cub_data *cub_data,
+	char direction,
+	char **line_elements,
+	int fd)
 {
 	if ((direction == 'E' && cub_data->settings.e_texture_path != NULL)
 		|| (direction == 'N' && cub_data->settings.n_texture_path != NULL)
@@ -60,11 +67,11 @@ static void	check_for_duplicate_settings(t_cub3d_data *cub_data, char direction,
 		free_double_array(&line_elements);
 		reach_eof_to_avoid_leaks(NULL, fd);
 		close (fd);
-		cub3d_exit(DUPLICATED_SETTING, cub_data);
+		cub_exit(DUPLICATED_SETTING, cub_data);
 	}
 }
 
-int	store_texture_path(t_cub3d_data *data, char **line_elements, int fd)
+int	store_texture_path(t_cub_data *cub_data, char **line_elements, int fd)
 {
 	char	direction;
 	char	*path;
@@ -76,17 +83,17 @@ int	store_texture_path(t_cub3d_data *data, char **line_elements, int fd)
 		|| ft_strcmp("WE", line_elements[0]) == 0)
 	{
 		direction = line_elements[0][0];
-		check_for_duplicate_settings(data, direction, line_elements, fd);
-		texture_file_opening_test(data, fd, line_elements, direction);
+		check_for_duplicate_settings(cub_data, direction, line_elements, fd);
+		texture_file_opening_test(cub_data, fd, line_elements, direction);
 		path = ft_strdup(line_elements[1]);
 		if (!path)
 		{
 			reach_eof_to_avoid_leaks(NULL, fd);
 			close(fd);
 			free_double_array(&line_elements);
-			cub3d_exit(OTHER, data);
+			cub_exit(OTHER, cub_data);
 		}
-		store_texture_path_ptr(data, direction, path);
+		store_texture_path_ptr(cub_data, direction, path);
 		return (0);
 	}
 	return (1);

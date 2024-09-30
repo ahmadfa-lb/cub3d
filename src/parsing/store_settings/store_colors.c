@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   save_colors.c                                      :+:      :+:    :+:   */
+/*   store_colors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:56:37 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/25 18:18:55 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/09/30 19:29:36 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../../include/cub3D.h"
 
 static void	check_for_duplicate_settings(
-	t_cub3d_data *data,
+	t_cub_data *cub_data,
 	char id,
 	char **line_elements,
 	int fd)
 {
-	if ((id == 'F' && data->settings.floor_color != NULL)
-		|| (id == 'C' && data->settings.ceiling_color != NULL))
+	if ((id == 'F' && cub_data->settings.floor_color != NULL)
+		|| (id == 'C' && cub_data->settings.ceiling_color != NULL))
 	{
 		free_double_array(&line_elements);
 		reach_eof_to_avoid_leaks(NULL, fd);
 		close (fd);
-		cub3d_exit(DUPLICATED_SETTING, data);
+		cub_exit(DUPLICATED_SETTING, cub_data);
 	}
 }
 
@@ -65,7 +65,7 @@ static bool	are_valid_rgb_values(char **rgb_strings)
 }
 
 static int	check_color_format_and_store(
-	t_cub3d_data *data,
+	t_cub_data *cub_data,
 	char *color_code,
 	t_color *color,
 	char id)
@@ -84,13 +84,13 @@ static int	check_color_format_and_store(
 	color->b = ft_atoi(rgb_strings[2]);
 	free_double_array(&rgb_strings);
 	if (id == 'C')
-		data->settings.ceiling_color = color;
+		cub_data->settings.ceiling_color = color;
 	else
-		data->settings.floor_color = color;
+		cub_data->settings.floor_color = color;
 	return (0);
 }
 
-int	store_colors(t_cub3d_data *data,
+int	store_colors(t_cub_data *cub_data,
 					char **line_elements,
 					int fd,
 					char id)
@@ -101,21 +101,21 @@ int	store_colors(t_cub3d_data *data,
 		|| ft_strcmp("C", line_elements[0]) == 0)
 	{
 		id = line_elements[0][0];
-		check_for_duplicate_settings(data, id, line_elements, fd);
+		check_for_duplicate_settings(cub_data, id, line_elements, fd);
 		color = malloc(sizeof(t_color));
 		if (!color)
 		{
 			free_double_array(&line_elements);
 			reach_eof_to_avoid_leaks(NULL, fd);
 			close(fd);
-			cub3d_exit(OTHER, data);
+			cub_exit(OTHER, cub_data);
 		}
-		if (check_color_format_and_store(data, line_elements[1], color, id))
+		if (check_color_format_and_store(cub_data, line_elements[1], color, id))
 		{
 			free_double_array(&line_elements);
 			reach_eof_to_avoid_leaks(NULL, fd);
 			close(fd);
-			cub3d_exit(BAD_COLOR_CODE_FORMAT, data);
+			cub_exit(BAD_COLOR_CODE_FORMAT, cub_data);
 		}
 		return (0);
 	}
