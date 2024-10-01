@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 15:55:54 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/30 18:49:39 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/01 13:50:49 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int	key_press(int keycode, t_cub_data *data)
 		data->keys.keys[KEY_LEFT] = true;
 	else if (keycode == RIGHT_ARROW)
 		data->keys.keys[KEY_RIGHT] = true;
-	else if (keycode == E)
-		open_or_close_door(data);
+	// else if (keycode == E)
+	// 	open_or_close_door(data);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 15:33:43 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/30 13:46:18 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/01 13:54:41 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,7 @@ static void	put_wall(t_cub_data *data, t_ray_cast *ray, t_img *texture)
 
 void	put_wall_texture(t_cub_data *data, t_ray_cast *ray)
 {
-	if (ray->door_hit)
-		put_wall(data, ray, &data->walls.door);
-	else if (ray->side == 0)
+	if (ray->side == 0)
 	{
 		if (ray->ray_dir_x > 0)
 			put_wall(data, ray, &data->walls.west);

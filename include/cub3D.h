@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 14:04:33 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/30 14:04:35 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/01 13:52:01 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,7 +222,7 @@ typedef struct s_walls
 	t_img	south;
 	t_img	east;
 	t_img	west;
-	t_img	door;
+	//t_img	door;
 }	t_walls;
 
 typedef struct s_ray_cast

@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:27:07 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/30 18:12:52 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/01 13:56:06 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,6 @@ static void	load_walls_imgs(t_cub_data *data)
 	data->walls.west.img_ptr = mlx_xpm_file_to_image(
 			data->mlx.mlx_ptr, data->settings.w_texture_path,
 			&data->walls.west.width, &data->walls.west.height);
-	data->walls.door.img_ptr = mlx_xpm_file_to_image(
-			data->mlx.mlx_ptr, DOOR,
-			&data->walls.door.width, &data->walls.door.height);
 }
 
 static void	check_loaded_imgs(t_cub_data *data)
@@ -63,8 +60,6 @@ static void	check_loaded_imgs(t_cub_data *data)
 		|| !data->gun.shoot3.img_ptr || !data->gun.std.img_ptr
 		|| !data->gun.std2.img_ptr || !data->gun.std3.img_ptr
 		|| !data->gun.std4.img_ptr || !data->utils.minimap.frame.img_ptr)
-		cub_exit(MLX_ERROR, data);
-	if (!data->walls.door.img_ptr)
 		cub_exit(MLX_ERROR, data);
 }
 

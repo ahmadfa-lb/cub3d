@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:20:20 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/30 18:19:05 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/01 13:56:19 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,9 @@ static void	set_null_to_ptrs(t_cub_data *data)
 	data->walls.north.img_ptr = NULL;
 	data->walls.south.img_ptr = NULL;
 	data->walls.west.img_ptr = NULL;
-	// data->walls.door.img_ptr = NULL;
 	// data->gun.shoot_frame = 0;
 	// data->gun.is_shooting = false;
 	// data->gun.last_shoot_time = 0;
-	// data->walls.door.img_ptr = NULL;
 }
 
 static void	init_exit_functions_array(struct s_cub_data *cub_data)

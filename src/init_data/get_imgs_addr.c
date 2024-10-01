@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_images_addr.c                                  :+:      :+:    :+:   */
+/*   get_imgs_addr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:24:25 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/30 18:12:16 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/01 13:56:25 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,6 @@ static void	get_walls_addr(t_cub_data *data)
 	data->walls.west.data = mlx_get_data_addr(
 			data->walls.west.img_ptr, &data->walls.west.bpp,
 			&data->walls.west.size_line, &data->walls.west.endian);
-	data->walls.door.data = mlx_get_data_addr(
-			data->walls.door.img_ptr, &data->walls.door.bpp,
-			&data->walls.door.size_line, &data->walls.door.endian);
 }
 
 void	get_imgs_addr(t_cub_data *data)

@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 19:44:04 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/30 19:44:06 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/01 13:55:31 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,6 @@ static void	free_walls_and_frame_imgs(t_cub_data *data)
 		mlx_destroy_image(data->mlx.mlx_ptr, data->walls.west.img_ptr);
 	if (data->mlx.mlx_ptr && data->walls.south.img_ptr)
 		mlx_destroy_image(data->mlx.mlx_ptr, data->walls.south.img_ptr);
-	if (data->mlx.mlx_ptr && data->walls.door.img_ptr)
-		mlx_destroy_image(data->mlx.mlx_ptr, data->walls.door.img_ptr);
 	if (data->mlx.mlx_ptr && data->utils.minimap.frame.img_ptr)
 	{
 		mlx_destroy_image(data->mlx.mlx_ptr,
