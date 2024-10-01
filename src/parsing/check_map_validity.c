@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 19:24:51 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/30 19:38:54 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/01 12:51:20 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,12 @@
 static bool	is_explorable(char **map, int i, int j)
 {
 	return (map[j][i] == '0'
-		|| is_player_spawn_pos(map[j][i])
-		|| map[j][i] == 'O'
-		|| map[j][i] == 'C');
+		|| is_player_spawn_pos(map[j][i]));
 }
 
 static bool	is_valid_char(char c)
 {
-	return (c != '0' && c != '1' && c != ' ' && c != 'O' && c != 'C');
+	return (c != '0' && c != '1' && c != ' ' && c != 'N');
 }
 
 static bool	check_neighbours(char **map, int i, int j, int map_height)
