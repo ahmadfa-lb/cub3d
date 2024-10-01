@@ -1,7 +1,7 @@
-NO ./game_data/textures/north.xpm
-SO ./game_data/textures/south.xpm
-WE ./game_data/textures/west.xpm
-EA ./game_data/textures/east.xpm
+NO ./game_data/textures/banner.xpm
+SO ./game_data/textures/wall_3.xpm
+WE ./game_data/textures/wall_3.xpm
+EA ./game_data/textures/hitler.xpm
 
 F 155,118,111
 C 135,206,235
