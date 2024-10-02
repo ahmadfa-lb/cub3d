@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 14:04:33 by afarachi          #+#    #+#             */
-/*   Updated: 2024/10/02 12:40:15 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/02 14:35:47 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@
 # define HIT_BOX 0.2f
 
 //=== Textures ------------------------------------------------------------===//
-# define FRAME "./game_data/textures/minimap_frame.xpm"
+# define FRAME "./textures/minimap_frame.xpm"
 
 
 //=== Data structures -----------------------------------------------------===//
