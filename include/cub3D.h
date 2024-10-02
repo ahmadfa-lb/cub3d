@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 14:04:33 by afarachi          #+#    #+#             */
-/*   Updated: 2024/10/02 11:58:25 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:06:57 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,24 +63,14 @@
 
 # define FOV 60.0f
 # define SENSITIVITY 5
-# define MOUSE_SENSITIVITY 0.001f
 # define TRESHOLD 10
 # define STRAFE_SPEED 0.1f
 # define PLAYER_SPEED 0.2f
 # define HIT_BOX 0.2f
-# define MAX_DOOR_INTERACT_DISTANCE 1.7f
 
 //=== Textures ------------------------------------------------------------===//
-
-# define GUN_IMG_1 "./game_data/textures/std1.xpm"
-# define GUN_IMG_2 "./game_data/textures/std2.xpm"
-# define GUN_IMG_3 "./game_data/textures/std3.xpm"
-# define GUN_IMG_4 "./game_data/textures/std4.xpm"
-# define SHOOT_IMG_1 "./game_data/textures/shoot.xpm"
-# define SHOOT_IMG_2 "./game_data/textures/shoot2.xpm"
-# define SHOOT_IMG_3 "./game_data/textures/shoot3.xpm"
 # define FRAME "./game_data/textures/minimap_frame.xpm"
-# define DOOR "./game_data/textures/door.xpm"
+
 
 //=== Data structures -----------------------------------------------------===//
 
@@ -287,8 +277,6 @@ void	draw_minimap(t_cub_data *data, int x, int y);
 int		render(t_cub_data *cub_data);
 void	raycasting(t_cub_data *data);
 void	put_wall_texture(t_cub_data *data, t_ray_cast *ray);
-//void	weapon_logic(t_cub_data *data, int gun_frame);
-//void	get_looking_door_values(t_ray_cast *ray, char map_value);
 void	minimap_frame(t_cub_data *data);
 void	move_forward(t_cub_data *data);
 void	move_backward(t_cub_data *data);
@@ -319,8 +307,6 @@ long	get_current_time_in_ms(void);
 float	deg_to_rad(int a);
 int		key_press(int keycode, t_cub_data *data);
 int		key_release(int keycode, t_cub_data *data);
-//int		mouse_hook_shoot(int button, int x, int y, t_cub_data *data);
-//int		mouse_hook_turn(int x, int y, t_cub_data *data);
 float	ft_fabs(float value);
 int		ft_abs(int value);
 void	init_data(struct s_cub_data *cub_data);
