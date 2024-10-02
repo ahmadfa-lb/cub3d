@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:27:07 by afarachi          #+#    #+#             */
-/*   Updated: 2024/10/02 11:55:08 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:59:43 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,6 @@
 
 static void	load_textures_imgs(t_cub_data *data)
 {
-	// data->gun.std.img_ptr = mlx_xpm_file_to_image(data->mlx.mlx_ptr,
-	// 		GUN_IMG_1, &data->gun.std.width, &data->gun.std.height);
-	// data->gun.std2.img_ptr = mlx_xpm_file_to_image(data->mlx.mlx_ptr,
-	// 		GUN_IMG_2, &data->gun.std2.width, &data->gun.std2.height);
-	// data->gun.std3.img_ptr = mlx_xpm_file_to_image(data->mlx.mlx_ptr,
-	// 		GUN_IMG_3, &data->gun.std3.width, &data->gun.std3.height);
-	// data->gun.std4.img_ptr = mlx_xpm_file_to_image(data->mlx.mlx_ptr,
-	// 		GUN_IMG_4, &data->gun.std4.width, &data->gun.std4.height);
-	// data->gun.shoot1.img_ptr = mlx_xpm_file_to_image(data->mlx.mlx_ptr,
-	// 		SHOOT_IMG_1, &data->gun.shoot1.width, &data->gun.shoot1.height);
-	// data->gun.shoot2.img_ptr = mlx_xpm_file_to_image(data->mlx.mlx_ptr,
-	// 		SHOOT_IMG_2, &data->gun.shoot2.width, &data->gun.shoot2.height);
-	// data->gun.shoot3.img_ptr = mlx_xpm_file_to_image(data->mlx.mlx_ptr,
-	// 		SHOOT_IMG_3, &data->gun.shoot3.width, &data->gun.shoot3.height);
 	data->utils.minimap.frame.img_ptr = \
 		mlx_xpm_file_to_image(
 			data->mlx.mlx_ptr, FRAME,
@@ -56,11 +42,6 @@ static void	check_loaded_imgs(t_cub_data *data)
 	if (!data->walls.west.img_ptr || !data->walls.east.img_ptr || \
 		!data->walls.south.img_ptr || !data->walls.north.img_ptr)
 		cub_exit(MLX_ERROR, data);
-	// if (!data->gun.shoot1.img_ptr || !data->gun.shoot2.img_ptr
-	// 	|| !data->gun.shoot3.img_ptr || !data->gun.std.img_ptr
-	// 	|| !data->gun.std2.img_ptr || !data->gun.std3.img_ptr
-	// 	|| !data->gun.std4.img_ptr || !data->utils.minimap.frame.img_ptr)
-	// 	cub_exit(MLX_ERROR, data);
 }
 
 void	load_mlx(t_cub_data *data)

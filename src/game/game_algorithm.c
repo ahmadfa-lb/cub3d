@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 19:00:10 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/30 18:11:30 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:00:21 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,5 @@ void	game_loop(t_cub_data *data)
 	mlx_hook(data->mlx.win_ptr, 3, 1L << 1, key_release, data);
 	mlx_hook(data->mlx.win_ptr, 17, 1L << 17,
 		(void *)free_everything, &(*data));
-	//mlx_hook(data->mlx.win_ptr, 6, 1L << 6, mouse_hook_turn, data);
-	//mlx_mouse_hook(data->mlx.win_ptr, mouse_hook_shoot, data);
 	mlx_loop(data->mlx.mlx_ptr);
 }

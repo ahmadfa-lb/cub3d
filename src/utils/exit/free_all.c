@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 19:44:04 by afarachi          #+#    #+#             */
-/*   Updated: 2024/10/02 11:55:45 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:58:51 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,6 @@
 
 static void	destroy_mlx(t_cub_data *data)
 {
-	// if (data->mlx.mlx_ptr && data->gun.shoot1.img_ptr)
-	// 	mlx_destroy_image(data->mlx.mlx_ptr, data->gun.shoot1.img_ptr);
-	// if (data->mlx.mlx_ptr && data->gun.shoot2.img_ptr)
-	// 	mlx_destroy_image(data->mlx.mlx_ptr, data->gun.shoot2.img_ptr);
-	// if (data->mlx.mlx_ptr && data->gun.shoot3.img_ptr)
-	// 	mlx_destroy_image(data->mlx.mlx_ptr, data->gun.shoot3.img_ptr);
-	// if (data->mlx.mlx_ptr && data->gun.std.img_ptr)
-	// 	mlx_destroy_image(data->mlx.mlx_ptr, data->gun.std.img_ptr);
-	// if (data->mlx.mlx_ptr && data->gun.std2.img_ptr)
-	// 	mlx_destroy_image(data->mlx.mlx_ptr, data->gun.std2.img_ptr);
-	// if (data->mlx.mlx_ptr && data->gun.std3.img_ptr)
-	// 	mlx_destroy_image(data->mlx.mlx_ptr, data->gun.std3.img_ptr);
-	// if (data->mlx.mlx_ptr && data->gun.std4.img_ptr)
-	// 	mlx_destroy_image(data->mlx.mlx_ptr, data->gun.std4.img_ptr);
 	if (data->mlx.mlx_ptr && data->mlx.img)
 		mlx_destroy_image(data->mlx.mlx_ptr, data->mlx.img);
 	if (data->mlx.mlx_ptr && data->mlx.win_ptr)

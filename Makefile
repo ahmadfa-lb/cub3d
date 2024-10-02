@@ -6,7 +6,7 @@
 #    By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/27 14:35:51 by afarachi          #+#    #+#              #
-#    Updated: 2024/10/02 11:56:27 by afarachi         ###   ########.fr        #
+#    Updated: 2024/10/02 12:01:19 by afarachi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,6 @@ SRCS =  src/cub3D.c \
         src/game/keys/key_controls.c \
         src/game/keys/process_motion.c \
         src/game/keys/process_turn.c \
-        src/game/keys/mouse.c \
         include/get_next_line/get_next_line.c \
         include/get_next_line/get_next_line_utils.c \
 
