@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 14:04:33 by afarachi          #+#    #+#             */
-/*   Updated: 2024/10/02 12:35:39 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:40:15 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 //=== Includes ------------------------------------------------------------===//
 
 # include "../minilibx-linux/mlx.h"
-# include "./libft/libft.h"
-# include "./get_next_line/get_next_line.h"
+# include "../libft/inc/libft.h"
+//# include "./get_next_line/get_next_line.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdbool.h>
@@ -291,7 +291,7 @@ void	open_or_close_door(t_cub_data *data);
 
 void	cub_exit(t_errors code, t_cub_data *cub_data);
 void	free_everything(t_cub_data *cub_data);
-int		ft_strcmp(const char *first, const char *second);
+int		ft_strcmp1(const char *first, const char *second);
 bool	is_only_spaces(char *line);
 bool	is_space(char check);
 int		double_array_len(char **array);

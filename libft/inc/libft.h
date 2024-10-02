@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 12:05:14 by afarachi          #+#    #+#             */
-/*   Updated: 2024/08/21 15:00:39 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:46:03 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdbool.h>
 # include <limits.h>
 # include <stdint.h>
-// # include "../libft/inc/get_next_line.h"
+# include "./get_next_line.h"
 
 typedef struct s_list
 {
@@ -52,7 +52,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_atoi(const char *nptr);
 void	*ft_calloc(size_t nmemb, size_t size);
-char	*ft_strdup(const char *s);
+// char	*ft_strdup(const char *s);
 /* ------------------ part 2------------------------------*/
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char *s1, char const *s2);

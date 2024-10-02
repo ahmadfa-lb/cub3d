@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 19:44:10 by afarachi          #+#    #+#             */
-/*   Updated: 2024/10/02 12:13:29 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:40:08 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ bool	is_space(char check)
 	return (true);
 }
 
-int	ft_strcmp(const char *first, const char *second)
+int	ft_strcmp1(const char *first, const char *second)
 {
 	while (*first && (*first == *second))
 	{
