@@ -1,0 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/30 13:47:58 by afarachi          #+#    #+#             */
+/*   Updated: 2024/09/30 13:48:04 by afarachi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+int	ft_atoi(const char *str)
+{
+	int	i;
+	int	temp;
+	int	countm;
+
+	countm = 0;
+	temp = 0;
+	i = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32
+		|| str[i] == '+' || str[i] == '-')
+	{
+		if ((str[i] == '+' || str[i] == '-')
+			&& (str[i + 1] == '+' || str[i + 1] == '-'
+				|| (str[i + 1] >= 9 && str[i + 1] <= 13) || str[i + 1] == 32))
+			return (0);
+		if (str[i] == '-')
+			countm++;
+		i++;
+	}
+	if ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		return (0);
+	while (str[i] >= '0' && str[i] <= '9')
+		temp = temp * 10 + str[i++] - '0';
+	if (countm == 1)
+		return (-temp);
+	return (temp);
+}

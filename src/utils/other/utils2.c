@@ -6,11 +6,11 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 19:44:14 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/30 19:44:15 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:13:33 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/cub3D.h"
+#include "../../../includes/cub3D.h"
 
 bool	is_player_spawn_pos(char c)
 {

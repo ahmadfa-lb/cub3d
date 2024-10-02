@@ -6,11 +6,11 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 00:00:22 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/30 20:07:36 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:11:18 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3D.h"
+#include "../includes/cub3D.h"
 
 int	main(int argc, char **argv)
 {

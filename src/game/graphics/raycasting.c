@@ -6,11 +6,11 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 15:33:43 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/30 13:46:05 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:11:34 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/cub3D.h"
+#include "../../../includes/cub3D.h"
 
 static void	dda_algorithm(t_cub_data *data, t_ray_cast *ray)
 {

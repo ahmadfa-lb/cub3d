@@ -6,11 +6,11 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:24:25 by afarachi          #+#    #+#             */
-/*   Updated: 2024/10/02 12:00:09 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:12:07 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/cub3D.h"
+#include "../../includes/cub3D.h"
 
 static void	get_imgs_adresses(t_cub_data *data)
 {

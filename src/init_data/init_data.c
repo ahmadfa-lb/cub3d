@@ -6,11 +6,11 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:20:20 by afarachi          #+#    #+#             */
-/*   Updated: 2024/10/02 11:59:55 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:12:11 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/cub3D.h"
+#include "../../includes/cub3D.h"
 
 static void	set_null_to_ptrs(t_cub_data *data)
 {

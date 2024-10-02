@@ -6,11 +6,11 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 19:10:35 by afarachi          #+#    #+#             */
-/*   Updated: 2024/10/02 12:00:16 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:12:03 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/cub3D.h"
+#include "../../includes/cub3D.h"
 
 int	render(t_cub_data *data)
 {

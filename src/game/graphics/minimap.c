@@ -6,11 +6,11 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 15:33:43 by afarachi          #+#    #+#             */
-/*   Updated: 2024/10/01 13:49:42 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:11:32 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/cub3D.h"
+#include "../../../includes/cub3D.h"
 
 static void	draw_elem(
 	t_cub_data *data,

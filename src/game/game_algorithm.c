@@ -6,11 +6,11 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 19:00:10 by afarachi          #+#    #+#             */
-/*   Updated: 2024/10/02 12:00:21 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:11:59 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/cub3D.h"
+#include "../../includes/cub3D.h"
 
 static void	game_algorithm(t_cub_data *data)
 {

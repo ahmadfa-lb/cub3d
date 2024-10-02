@@ -6,11 +6,11 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 18:58:46 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/30 19:28:40 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:12:30 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/cub3D.h"
+#include "../../../includes/cub3D.h"
 
 static void	check_if_player_pos(t_cub_data *cub_data, bool *set, int i, int j)
 {

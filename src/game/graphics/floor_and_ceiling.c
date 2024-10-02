@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/cub3D.h"
+#include "../../../includes/cub3D.h"
 
 static int	create_trgb(unsigned char r, unsigned char g, unsigned char b)
 {

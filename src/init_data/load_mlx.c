@@ -6,11 +6,11 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:27:07 by afarachi          #+#    #+#             */
-/*   Updated: 2024/10/02 11:59:43 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:12:14 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/cub3D.h"
+#include "../../includes/cub3D.h"
 
 static void	load_textures_imgs(t_cub_data *data)
 {

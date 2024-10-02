@@ -6,11 +6,11 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 19:43:35 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/30 19:43:37 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:13:06 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../../include/cub3D.h"
+#include "../../../../includes/cub3D.h"
 
 void	bad_setting_format_error(void)
 {

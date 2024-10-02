@@ -6,11 +6,11 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:56:37 by afarachi          #+#    #+#             */
-/*   Updated: 2024/09/30 19:29:36 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:12:22 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/cub3D.h"
+#include "../../../includes/cub3D.h"
 
 static void	check_for_duplicate_settings(
 	t_cub_data *cub_data,

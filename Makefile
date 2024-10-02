@@ -6,7 +6,7 @@
 #    By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/27 14:35:51 by afarachi          #+#    #+#              #
-#    Updated: 2024/10/02 12:01:19 by afarachi         ###   ########.fr        #
+#    Updated: 2024/10/02 12:35:04 by afarachi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,23 +44,23 @@ SRCS =  src/cub3D.c \
         src/game/keys/key_controls.c \
         src/game/keys/process_motion.c \
         src/game/keys/process_turn.c \
-        include/get_next_line/get_next_line.c \
-        include/get_next_line/get_next_line_utils.c \
+        includes/get_next_line/get_next_line.c \
+        includes/get_next_line/get_next_line_utils.c \
 
 OBJS_DIR = ./objs/
 OBJS = $(patsubst src/%.c,$(OBJS_DIR)%.o,$(SRCS))
 
 CC = cc -g
 
-LIBFT_DIR = include/libft/libft.a
+LIBFT_DIR = includes/libft/libft.a
 
-MLX_DIR = include/minilibx-linux
+MLX_DIR = minilibx-linux
 
 MLX_LINK = -L$(MLX_DIR) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm
 
 RM = rm -rf
 
-CFLAGS = -Wall -Wextra -Werror -Iinclude
+CFLAGS = -Wall -Wextra -Werror -Iincludes
 
 all: $(NAME)
 
@@ -75,17 +75,17 @@ $(OBJS_DIR)%.o: src/%.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT_DIR):
-	$(MAKE) -sC include/libft
+	$(MAKE) -sC includes/libft
 
 $(MLX_DIR)/libmlx.a:
 	$(MAKE) -C $(MLX_DIR)
 
 clean:
-	$(MAKE) clean -sC include/libft
+	$(MAKE) clean -sC includes/libft
 	$(RM) $(OBJS_DIR)
 
 fclean: clean
-	$(MAKE) fclean -sC include/libft
+	$(MAKE) fclean -sC includes/libft
 	$(MAKE) clean -C $(MLX_DIR)
 	$(RM) $(NAME)
 

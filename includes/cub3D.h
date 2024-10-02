@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 14:04:33 by afarachi          #+#    #+#             */
-/*   Updated: 2024/10/02 12:06:57 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:35:39 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 //=== Includes ------------------------------------------------------------===//
 
-# include "./minilibx-linux/mlx.h"
+# include "../minilibx-linux/mlx.h"
 # include "./libft/libft.h"
 # include "./get_next_line/get_next_line.h"
 # include <stdio.h>

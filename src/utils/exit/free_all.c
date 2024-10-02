@@ -6,11 +6,11 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 19:44:04 by afarachi          #+#    #+#             */
-/*   Updated: 2024/10/02 11:58:51 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:13:03 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/cub3D.h"
+#include "../../../includes/cub3D.h"
 
 static void	destroy_mlx(t_cub_data *data)
 {
