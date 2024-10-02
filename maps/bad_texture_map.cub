@@ -1,7 +1,7 @@
-NO ./game_data/textures/north.xpm
-SO ./game_data/textures/south.xpm
-WE ./game_data/textures/bad_texture.xpm
-EA ./game_data/textures/east.xpm
+NO ./textures/north.xpm
+SO ./textures/south.xpm
+WE ./textures/bad_texture.xpm
+EA ./textures/east.xpm
 
 F 155,118,111
 C 135,206,235

@@ -1,7 +1,7 @@
-NO ./game_data/textures/matrix.xpm
-SO ./game_data/textures/matrix.xpm
-WE ./game_data/textures/matrix.xpm
-EA ./game_data/textures/matrix.xpm
+NO ./textures/matrix.xpm
+SO ./textures/matrix.xpm
+WE ./textures/matrix.xpm
+EA ./textures/matrix.xpm
 
 F 0,0,0
 C 0,0,0

@@ -1,7 +1,7 @@
-NO ./game_data/textures/brick.xpm
-SO ./game_data/textures/blue.xpm
-WE ./game_data/textures/wood.xpm
-EA ./game_data/textures/west.xpm
+NO ./textures/brick.xpm
+SO ./textures/blue.xpm
+WE ./textures/wood.xpm
+EA ./textures/west.xpm
 
 F 184,113,39
 C 51,198,227

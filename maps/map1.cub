@@ -1,7 +1,7 @@
-NO ./game_data/textures/tile003.xpm
-SO ./game_data/textures/tile005.xpm
-WE ./game_data/textures/tile006.xpm
-EA ./game_data/textures/tile007.xpm
+NO ./textures/tile003.xpm
+SO ./textures/tile005.xpm
+WE ./textures/tile006.xpm
+EA ./textures/tile007.xpm
 
 C 120,249,241
 F 219,150,165
