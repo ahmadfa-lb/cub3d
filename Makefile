@@ -6,7 +6,7 @@
 #    By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/27 14:35:51 by afarachi          #+#    #+#              #
-#    Updated: 2024/10/01 13:56:52 by afarachi         ###   ########.fr        #
+#    Updated: 2024/10/02 11:56:27 by afarachi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,6 @@ SRCS =  src/cub3D.c \
 		src/game/graphics/minimap.c \
 		src/game/graphics/raycasting.c \
 		src/game/graphics/walls_textures.c \
-        src/game/graphics/weapon.c \
         src/game/utils/put_pixels.c \
 		src/game/utils/utils.c \
         src/game/keys/key_controls.c \

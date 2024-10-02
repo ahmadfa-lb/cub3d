@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 14:04:33 by afarachi          #+#    #+#             */
-/*   Updated: 2024/10/01 13:52:01 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:53:36 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,21 +140,21 @@ typedef struct s_img
 	int		height;
 }	t_img;
 
-typedef struct s_gun
-{
-	t_img	std;
-	t_img	std2;
-	t_img	std3;
-	t_img	std4;
-	t_img	shoot1;
-	t_img	shoot2;
-	t_img	shoot3;
-	t_img	*shoot_images[5];
-	t_img	*gun_images[2];
-	bool	is_shooting;
-	int		shoot_frame;
-	long	last_shoot_time;
-}	t_gun;
+// typedef struct s_gun
+// {
+// 	t_img	std;
+// 	t_img	std2;
+// 	t_img	std3;
+// 	t_img	std4;
+// 	t_img	shoot1;
+// 	t_img	shoot2;
+// 	t_img	shoot3;
+// 	t_img	*shoot_images[5];
+// 	t_img	*gun_images[2];
+// 	bool	is_shooting;
+// 	int		shoot_frame;
+// 	long	last_shoot_time;
+// }	t_gun;
 
 typedef struct s_color
 {
@@ -222,7 +222,6 @@ typedef struct s_walls
 	t_img	south;
 	t_img	east;
 	t_img	west;
-	//t_img	door;
 }	t_walls;
 
 typedef struct s_ray_cast
@@ -261,7 +260,7 @@ typedef struct s_cub_data
 	struct s_mlx			mlx;
 	struct s_player_data	player_data;
 	struct s_ray_cast		ray;
-	struct s_gun			gun;
+	// struct s_gun			gun;
 	struct s_walls			walls;
 	struct s_keys			keys;
 }	t_cub_data;
