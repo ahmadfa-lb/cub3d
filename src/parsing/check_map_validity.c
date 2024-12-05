@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map_validity.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: odib <odib@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 19:24:51 by afarachi          #+#    #+#             */
-/*   Updated: 2024/10/02 12:40:31 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/12/05 13:17:21 by odib             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 static bool	is_explorable(char **map, int i, int j)
 {
-	return (map[j][i] == '0'
-		|| is_player_spawn_pos(map[j][i])
-		|| map[j][i] == 'O'
-		|| map[j][i] == 'C');
+	return (map[j][i] == '0' || is_player_spawn_pos(map[j][i])
+			//|| map[j][i] == 'O'
+			//|| map[j][i] == 'C'
+	);
 }
 
 static bool	is_valid_char(char c)
 {
-	return (c != '0' && c != '1' && c != ' ' && c != 'O' && c != 'C');
+	return (c != '0' && c != '1' && c != ' ');
 }
 
 static bool	check_neighbours(char **map, int i, int j, int map_height)
@@ -51,11 +51,8 @@ static bool	check_neighbours(char **map, int i, int j, int map_height)
 	return (true);
 }
 
-static void	check_map_closed(
-	t_cub_data *cub_data,
-	char **map,
-	int map_height,
-	int fd)
+static void	check_map_closed(t_cub_data *cub_data, char **map, int map_height,
+		int fd)
 {
 	int	i;
 	int	j;
@@ -72,8 +69,8 @@ static void	check_map_closed(
 				close(fd);
 				cub_exit(MAP_WRONG_CHARACTER, cub_data);
 			}
-			if (is_explorable(map, i, j)
-				&& !check_neighbours(map, i, j, map_height))
+			if (is_explorable(map, i, j) && !check_neighbours(map, i, j,
+					map_height))
 			{
 				close(fd);
 				cub_exit(MAP_UNCLOSED, cub_data);
@@ -91,9 +88,6 @@ void	check_map_validity(t_cub_data *cub_data, int fd)
 		close(fd);
 		cub_exit(MAP_MISSING, cub_data);
 	}
-	check_map_closed(
-		cub_data,
-		cub_data->settings.map,
-		double_array_len(cub_data->settings.map),
-		fd);
+	check_map_closed(cub_data, cub_data->settings.map,
+		double_array_len(cub_data->settings.map), fd);
 }

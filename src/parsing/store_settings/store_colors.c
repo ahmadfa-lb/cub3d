@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   store_colors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: odib <odib@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:56:37 by afarachi          #+#    #+#             */
-/*   Updated: 2024/10/02 12:12:22 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/12/05 12:40:58 by odib             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ int	store_colors(t_cub_data *cub_data,
 			close(fd);
 			cub_exit(BAD_COLOR_CODE_FORMAT, cub_data);
 		}
-		return (0);
+		return (EXIT_SUCCESS);
 	}
-	return (1);
+	return (EXIT_FAILURE);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   extract_settings.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: odib <odib@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 15:33:43 by afarachi          #+#    #+#             */
-/*   Updated: 2024/10/02 12:12:43 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/12/05 11:52:28 by odib             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ static void	handle_line(
 	line_length = double_array_len(elements);
 	last_element = elements[line_length - 1];
 	elements[line_length - 1] = ft_strtrim(elements[line_length - 1], "\n");
-	if (!elements[line_length - 1])
-	{
-		free(last_element);
-		handle_error_and_exit(elements, fd, cub_data);
-	}
+	//if (!elements[line_length - 1])
+	//{
+	//	free(last_element);
+	//	handle_error_and_exit(elements, fd, cub_data);
+	//}
 	free(last_element);
 	if (cub_data->utils.settings_already_set != BASE_SETTINGS_REQUIRED)
 	{
