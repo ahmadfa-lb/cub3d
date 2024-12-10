@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: odib <odib@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:20:20 by afarachi          #+#    #+#             */
-/*   Updated: 2024/12/05 11:37:43 by odib             ###   ########.fr       */
+/*   Updated: 2024/12/10 10:12:17 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,12 @@
 
 static void	set_null_to_ptrs(t_cub_data *data)
 {
-	//data->mlx.mlx_ptr = NULL;
-	//data->mlx.img = NULL;
-	//data->mlx.win_ptr = NULL;
 	data->keys.keys[0] = false;
 	data->keys.keys[1] = false;
 	data->keys.keys[2] = false;
 	data->keys.keys[3] = false;
 	data->keys.keys[4] = false;
 	data->keys.keys[5] = false;
-	//data->walls.east.img_ptr = NULL;
-	//data->walls.north.img_ptr = NULL;
-	//data->walls.south.img_ptr = NULL;
-	//data->walls.west.img_ptr = NULL;
 }
 
 static void	init_exit_functions_array(struct s_cub_data *cub_data)

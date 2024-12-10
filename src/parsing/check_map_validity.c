@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map_validity.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: odib <odib@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 19:24:51 by afarachi          #+#    #+#             */
-/*   Updated: 2024/12/05 13:17:21 by odib             ###   ########.fr       */
+/*   Updated: 2024/12/10 10:10:44 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 static bool	is_explorable(char **map, int i, int j)
 {
-	return (map[j][i] == '0' || is_player_spawn_pos(map[j][i])
-			//|| map[j][i] == 'O'
-			//|| map[j][i] == 'C'
-	);
+	return (map[j][i] == '0' || is_player_spawn_pos(map[j][i]));
 }
 
 static bool	is_valid_char(char c)
