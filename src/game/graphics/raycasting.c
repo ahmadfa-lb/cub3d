@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: odib <odib@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 15:33:43 by afarachi          #+#    #+#             */
-/*   Updated: 2024/10/02 12:11:34 by afarachi         ###   ########.fr       */
+/*   Updated: 2024/12/05 13:31:53 by odib             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ static void	dda_algorithm(t_cub_data *data, t_ray_cast *ray)
 			ray->side = 1;
 		}
 		map_value = data->settings.map[ray->map_y][ray->map_x];
-		if (map_value == '1' || map_value == 'C')
+		if (map_value == '1' )
+		//|| map_value == 'C'
 			ray->hit = true;
 		//get_looking_door_values(ray, map_value);
 	}

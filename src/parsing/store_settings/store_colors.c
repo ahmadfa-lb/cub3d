@@ -6,24 +6,21 @@
 /*   By: odib <odib@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:56:37 by afarachi          #+#    #+#             */
-/*   Updated: 2024/12/05 12:40:58 by odib             ###   ########.fr       */
+/*   Updated: 2024/12/05 13:35:30 by odib             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/cub3D.h"
 
-static void	check_for_duplicate_settings(
-	t_cub_data *cub_data,
-	char id,
-	char **line_elements,
-	int fd)
+static void	check_for_duplicate_settings(t_cub_data *cub_data, char id,
+		char **line_elements, int fd)
 {
-	if ((id == 'F' && cub_data->settings.floor_color != NULL)
-		|| (id == 'C' && cub_data->settings.ceiling_color != NULL))
+	if ((id == 'F' && cub_data->settings.floor_color != NULL))
+	//|| (id == 'C' && cub_data->settings.ceiling_color != NULL)
 	{
 		free_double_array(&line_elements);
 		reach_eof_to_avoid_leaks(NULL, fd);
-		close (fd);
+		close(fd);
 		cub_exit(DUPLICATED_SETTING, cub_data);
 	}
 }
@@ -64,11 +61,8 @@ static bool	are_valid_rgb_values(char **rgb_strings)
 	return (true);
 }
 
-static int	check_color_format_and_store(
-	t_cub_data *cub_data,
-	char *color_code,
-	t_color *color,
-	char id)
+static int	check_color_format_and_store(t_cub_data *cub_data, char *color_code,
+		t_color *color, char id)
 {
 	char	**rgb_strings;
 
@@ -90,15 +84,12 @@ static int	check_color_format_and_store(
 	return (0);
 }
 
-int	store_colors(t_cub_data *cub_data,
-					char **line_elements,
-					int fd,
-					char id)
+int	store_colors(t_cub_data *cub_data, char **line_elements, int fd, char id)
 {
-	t_color	*color;
+	t_color *color;
 
-	if (ft_strcmp("F", line_elements[0]) == 0
-		|| ft_strcmp("C", line_elements[0]) == 0)
+	if (ft_strcmp("F", line_elements[0]) == 0 || ft_strcmp("C",
+			line_elements[0]) == 0)
 	{
 		id = line_elements[0][0];
 		check_for_duplicate_settings(cub_data, id, line_elements, fd);
