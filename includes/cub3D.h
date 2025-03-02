@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: odib <odib@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 14:04:33 by afarachi          #+#    #+#             */
-/*   Updated: 2024/12/05 11:23:29 by odib             ###   ########.fr       */
+/*   Updated: 2025/03/03 01:09:38 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,10 +219,6 @@ typedef struct s_ray_cast
 	int						texture_x;
 	int						texture_y;
 	int						line_height;
-	bool					door_hit;
-	bool					player_facing_door;
-	int						x_faced_door;
-	int						y_faced_door;
 	bool					hit;
 }							t_ray_cast;
 
@@ -283,7 +279,6 @@ void						move_right(t_cub_data *data);
 void						turn_left(t_cub_data *data);
 void						turn_right(t_cub_data *data);
 void						handle_keys(t_cub_data *data);
-void						open_or_close_door(t_cub_data *data);
 
 //=== Utils ---------------------------------------------------------------===//
 

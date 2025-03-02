@@ -6,7 +6,7 @@
 /*   By: afarachi <afarachi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 15:33:43 by afarachi          #+#    #+#             */
-/*   Updated: 2024/12/10 10:11:15 by afarachi         ###   ########.fr       */
+/*   Updated: 2025/03/03 01:09:55 by afarachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static void	dda_algorithm(t_cub_data *data, t_ray_cast *ray)
 	char	map_value;
 
 	ray->hit = false;
-	ray->door_hit = false;
 	while (ray->hit == false)
 	{
 		if (ray->side_dist_x < ray->side_dist_y)
@@ -102,7 +101,6 @@ static void	get_wall_dist(t_cub_data *data, t_ray_cast *ray)
 
 void	raycasting(t_cub_data *data)
 {
-	data->ray.player_facing_door = false;
 	data->ray.column = 0;
 	while (data->ray.column < data->mlx.win_width)
 	{
