@@ -6,7 +6,6 @@ Cub3D is a 3D game engine project based on the Wolfenstein 3D game, created usin
 ### Main Game View
 ![Game Screenshot](./screenshot1.png)
 
-### Minimap View
 ![Minimap Screenshot](./screenshot2.png)
 
 ## Features
