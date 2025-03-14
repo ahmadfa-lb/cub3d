@@ -1,10 +1,10 @@
-NO ./textures/tile003.xpm
-SO ./textures/tile005.xpm
-WE ./textures/tile006.xpm
-EA ./textures/tile007.xpm
+NO ./textures/lebanon.xpm
+SO ./textures/lebanon.xpm
+WE ./textures/lebanon.xpm
+EA ./textures/lebanon.xpm
 
 C 120,249,241
-F 219,150,165
+F 0,0,0
 
         1111111111111111111111111
         1000000000110000000000001
